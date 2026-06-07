@@ -22,9 +22,9 @@
       "deployTarget": "vercel-free",
       "needsOwner": [],
       "brandName": "ShipSafe",
-      "status": "researched",
-      "liveUrl": "",
-      "repo": "",
+      "status": "shipped",
+      "liveUrl": "https://dukotah.github.io/shipsafe/",
+      "repo": "https://github.com/Dukotah/shipsafe",
       "createdSession": "2026-06-07",
       "notes": "Validator KEEP at 79. Only risk: several multi-check free tools (SortSite checks a11y+SEO). Do NOT build another WAVE clone — win entirely on the non-technical legal-risk framing and combined output. Strongest confidence in the set; perfect ProductHunt/Discord/dev-SEO fit ('Is my Lovable app ADA-compliant?' is zero-competition SEO). Build first."
     },
