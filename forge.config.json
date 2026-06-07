@@ -1,0 +1,12 @@
+{
+  "umbrellaBrand": "Copper Bay Labs",
+  "surfaceScoreThreshold": 70,
+  "autoGreenlightScore": null,
+  "maxConcurrentBuilds": 3,
+  "buildAgentCap": 12,
+  "defaultDeployTarget": "github-pages",
+  "lanes": { "zeroSecret": true, "needsOwnerParked": true },
+  "ownerEmail": "dukotah@gmail.com",
+  "connectedChannels": { "gmail": true, "x": false, "linkedin": false, "reddit": false, "producthunt": false },
+  "notes": "Scout writes ideas here; owner flips status to greenlit. See FORGE.md for the full operating brief."
+}
