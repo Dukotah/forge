@@ -79,9 +79,9 @@
         "Resend (lead email)"
       ],
       "brandName": "QuotePilot",
-      "status": "researched",
-      "liveUrl": "",
-      "repo": "",
+      "status": "shipped",
+      "liveUrl": "https://dukotah.github.io/quotepilot/",
+      "repo": "https://github.com/Dukotah/quotepilot",
       "createdSession": "2026-06-07",
       "notes": "Validator RESHAPE 84->74: free incumbents own the builder lane, so the 'no standalone qualifier exists' gap is false. Compete on done-for-you install + ownership through the Copper Bay channel, not features. Natural bundle with the Job-Completion Report into a trades stack."
     },
