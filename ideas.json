@@ -17,11 +17,11 @@
       "needsOwner": [],
       "brandName": "LeakCheck",
       "category": "dev",
-      "status": "researched",
-      "liveUrl": "",
-      "repo": "",
+      "status": "shipped",
+      "liveUrl": "https://dukotah.github.io/leakcheck/",
+      "repo": "https://github.com/Dukotah/leakcheck",
       "createdSession": "2026-06-08",
-      "notes": "Strong HN/Reddit/dev-Twitter virality ('I built a client-side secret scanner') and zero-competition SEO ('check my code for exposed API keys'). Reuse the ShipSafe/Copper Bay Labs design base. The client-side guarantee IS the moat vs. trust-me-bro upload tools."
+      "notes": "SHIPPED 2026-06-08 — product #3 and the FIRST under the widened-scope mandate. Built by a 7-agent forge swarm (4 build / 2 adversarial verify / 1 finalize). Security promise independently verified in a real browser: zero network on user data, XSS-safe (textContent), secrets always masked (example scan = 10 findings, no raw secret in DOM). Gotcha logged: GitHub push protection blocked the first push on the demo's Stripe test key — fixed by fragmenting example secrets at runtime. Monetization teased: pre-commit hook + CI ruleset pack. See builds/leakcheck.md."
     },
     {
       "id": "freelance-true-rate",
@@ -41,7 +41,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Evergreen high-intent SEO ('freelance rate calculator', 'what should I charge'). Honest-by-construction like the killed QuotePilot but with a MUCH broader global audience and a real share loop. No regulated advice — pure arithmetic the user inputs."
+      "notes": "Evergreen high-intent SEO ('freelance rate calculator', 'what should I charge'). Honest-by-construction like the killed QuotePilot but with a MUCH broader global audience and a real share loop. No regulated advice — pure arithmetic the user inputs. Strong candidate for the next build."
     },
     {
       "id": "caffeine-curve",
@@ -298,10 +298,10 @@
       "brandName": "QuotePilot",
       "category": "b2b-local",
       "status": "killed",
-      "liveUrl": "https://dukotah.github.io/quotepilot/",
+      "liveUrl": "",
       "repo": "https://github.com/Dukotah/quotepilot",
       "createdSession": "2026-06-07",
-      "notes": "KILLED by owner 2026-06-08: weak idea, scrapped after ship. No defensible distribution loop or moat; crowded free-builder lane upstream. Repo/Pages teardown pending owner OK. Do not revisit as a standalone product."
+      "notes": "KILLED by owner 2026-06-08: weak idea, scrapped after ship. Teardown DONE 2026-06-08 — GitHub Pages disabled (live site removed) and repo archived/read-only. Full hard-delete pending (PAT lacks delete_repo scope). No defensible distribution loop or moat. Do not revisit as a standalone product."
     }
   ]
 }
