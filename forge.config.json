@@ -7,6 +7,7 @@
   "defaultDeployTarget": "github-pages",
   "lanes": { "zeroSecret": true, "needsOwnerParked": true },
   "ownerEmail": "dukotah@gmail.com",
+  "domainPlan": "ONE umbrella .dev domain (e.g. copperbaylabs.dev), one SUBDOMAIN per product (shipsafe.copperbaylabs.dev, etc.). DEFERRED — owner buys later. Until then products stay on dukotah.github.io/<repo>. Do NOT register per-product domains; converge on the single .dev. GitHub Pages gives free HTTPS + custom subdomains (CNAME file in repo + a CNAME DNS record → dukotah.github.io). .dev requires HTTPS, which Pages provides.",
   "connectedChannels": { "gmail": true, "x": false, "linkedin": false, "reddit": false, "producthunt": false },
   "notes": "Scout writes ideas here; owner flips status to greenlit. See FORGE.md for the full operating brief."
 }
