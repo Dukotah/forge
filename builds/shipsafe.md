@@ -17,6 +17,18 @@ focus-visible, reduced-motion, AAA contrast, footer legal links so it passes its
 **human copy pass**. Screenshot-verified live (serif hero, copper motif, SVG icons, no emoji).
 Remaining Phase 1: P1.4 shareable OG result image, P1.9 real domain (owner). Phases 2–4 next.
 
+## Header fix + build-out — 2026-06-07 (commits → c55e0b9)
+Owner reported a broken header. Root cause was TWO things: (1) the redesign HTML was loading against a
+**stale cached `styles.css`** (relative link, no version) that predated the new `.masthead` rules → header
+had no styling/height. (2) `position:sticky;top:0` rendered clipped. Fixes: **versioned asset links**
+(`styles.css?v=N` / `app.js?v=N`, bumped each deploy so the CDN can't serve stale CSS again) + **non-sticky
+header** (eliminates the clip) + **padding-based bar height**. Also fixed a mobile bug (stacked input
+ballooned to 280px because `flex-basis` became a height in `flex-direction:column` → reset `flex:0 0 auto`)
+and added `overflow-x:clip`. **Built it out:** a "Built for sites made with" credibility band
+(Lovable/Bolt/v0/Cursor/Webflow/Framer/Squarespace/WordPress) + a 3-step "How it works" section.
+Screenshot-verified: header crisp, mobile input correct, new sections render. LESSON for all Pages
+products: **version CSS/JS links** or the CDN serves stale assets after a redesign.
+
 ## Status / next
 - ✅ Built, deployed, live. Adversarial self-review done; smoke-test the live URL on a few real
   sites (a clean site, a no-code site, a JS-only SPA to see the graceful "couldn't read" state).
