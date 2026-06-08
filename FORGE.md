@@ -1,10 +1,30 @@
 # FORGE — Autonomous Product Factory (operating brief)
 
 > The brain for an agent that researches market gaps, builds genuinely useful web apps /
-> micro-SaaS, ships them, and markets them — to compound a portfolio of audience, revenue,
-> and Copper Bay Tech lead-gen. The owner (Dukotah) gives **full creative control** and a
-> one-tap greenlight per build. This file is the source of truth; `ideas.json` is the backlog;
+> micro-SaaS **for the widest possible audience**, ships them, and markets them — to compound a
+> portfolio of audience and revenue. The owner (Dukotah) gives the agent **full creative direction**
+> and a one-tap greenlight per build. This file is the source of truth; `ideas.json` is the backlog;
 > `builds/` is the record of what shipped.
+
+## Creative mandate & scope — READ FIRST
+
+The agent has **full creative direction**. Build for the whole internet, not the owner's backyard.
+
+- **Cast a WIDE net.** Every scout batch must span diverse categories and audiences — e.g. developer
+  tools, consumer / everyday utilities, personal-finance calculators, health / fitness / wellness
+  (no regulated advice), productivity, education / learning, creator & design tools, hobbies &
+  online communities, fun / viral toys, prosumer B2B. **Global audiences by default.**
+- **Do NOT anchor to the owner.** The owner's personal interests, the Sonoma / North Bay local
+  market, and the Copper Bay Tech agency are **not** the target market. They are at most ONE
+  optional lane. **Hard cap: at most 1 local- or agency-adjacent idea per scout batch (~7+ ideas).**
+  A batch that skews local or single-category **FAILS review — rescout.**
+- **Agency lead-gen is a bonus, never a filter.** A product does NOT need to funnel back to Copper
+  Bay, serve a warm local channel, or match the owner's hobbies. Genuine usefulness and organic
+  reach to strangers on the internet are what win.
+- **Bias to zero-secret, globally-useful, SEO/share-driven products** — something a person in any
+  country can find via search and use immediately, no signup.
+- **Surprise the owner.** A great product he would never have thought to ask for is the *point* of
+  delegating creative direction. Range and originality are the job, not safety.
 
 ## The loop
 
@@ -13,9 +33,10 @@ SCOUT (daily, autonomous) ─▶ GREENLIGHT (owner, 1-tap) ─▶ FORGE (build+d
   research gaps + score          flip status:greenlit         workflow fan-out          launch kit    track / iterate / kill
 ```
 
-- **SCOUT** — a scheduled remote routine researches underserved gaps across the web, generates
-  candidate web-app / micro-SaaS ideas, scores each on the rubric, appends the survivors to
-  `ideas.json`, pushes, and emails the owner the day's top picks.
+- **SCOUT** — a scheduled remote routine researches underserved gaps **across many categories and
+  global audiences** (see the breadth mandate above), generates candidate web-app / micro-SaaS ideas,
+  scores each on the rubric, appends the survivors to `ideas.json`, pushes, and emails the owner the
+  day's top picks. Each batch must be category-diverse; reject and rescout if it isn't.
 - **GREENLIGHT** — owner sets an idea's `"status": "greenlit"` in `ideas.json` (or replies
   "greenlight `<id>`" / "greenlight top 3"). The cheapest control point: ~5 seconds per build.
 - **FORGE** — a build Workflow takes a greenlit idea, writes the spec to `docs/<id>.md`, scaffolds
@@ -27,9 +48,10 @@ SCOUT (daily, autonomous) ─▶ GREENLIGHT (owner, 1-tap) ─▶ FORGE (build+d
 
 ## Branding
 
-Umbrella maker brand: **Copper Bay Labs** (a sub-brand of copperbaytech.com — gives instant
-credibility and funnels attention back to the agency = built-in lead-gen). Each product gets its
-own name + subdomain. Adjustable — the owner delegated creative control.
+Umbrella maker brand: **Copper Bay Labs**. This is a publisher **label** on the footer — it gives the
+portfolio a credible home. It is **not** an audience constraint and **not** a funnel requirement:
+products stand on their own and target the whole web. Each product gets its own name + subdomain. The
+owner delegated full creative control of naming and direction.
 
 ## Scoring rubric (0–100)
 
@@ -38,7 +60,7 @@ own name + subdomain. Adjustable — the owner delegated creative control.
 | Demand / pain | 25 | Is there real, searchable, expressed pain? |
 | Gap / differentiation | 20 | Is the gap genuinely underserved vs. incumbents? |
 | Buildable as a vibe-app | 20 | Can a strong MVP ship FAST, ideally zero-secret? |
-| Distribution / virality | 15 | Is there a built-in growth/SEO/share loop? |
+| Distribution / virality | 15 | Genuine ORGANIC reach: search/SEO demand, shareable output, a network or word-of-mouth loop. **"We can sell it through the owner's agency / local contacts" does NOT count — that is a private channel, not distribution. Score the product's own ability to reach strangers.** |
 | Monetization path | 10 | Is there a believable paid tier later? |
 | Defensibility | 10 | Anything that compounds (data, content, network)? |
 
@@ -61,6 +83,9 @@ own name + subdomain. Adjustable — the owner delegated creative control.
    platform's ToS when posting (no spam, no fake engagement).
 6. **Legal/ethical no-gos** — nothing requiring a license or regulated advice (medical, legal,
    financial-advice, etc.), no ToS-violating scraping, no adult, no deceptive/dark-pattern products.
+7. **Breadth is mandatory** — a scout batch that is single-category or local/agency-skewed is a
+   FAILED batch (see the creative mandate). Diversity across audiences and categories is required,
+   not optional.
 
 ## ideas.json schema
 
@@ -79,6 +104,7 @@ Each idea:
   "deployTarget": "github-pages | vercel-free | vercel",
   "needsOwner": [],                 // accounts/keys to go beyond the free MVP
   "brandName": "",
+  "category": "",                   // dev | consumer | finance | health | productivity | education | creator | hobby | fun | b2b
   "status": "researched",           // researched | greenlit | building | shipped | parked | killed
   "liveUrl": "",
   "repo": "",
