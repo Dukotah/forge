@@ -29,6 +29,20 @@ and added `overflow-x:clip`. **Built it out:** a "Built for sites made with" cre
 Screenshot-verified: header crisp, mobile input correct, new sections render. LESSON for all Pages
 products: **version CSS/JS links** or the CDN serves stale assets after a redesign.
 
+## Completion pass + readiness audit — 2026-06-07 (→ commit fba3041)
+Added the "feels finished" pieces: **deep-linkable + shareable scans** (`?url=` auto-runs + `history.replaceState`
+so a result is a shareable link), a branded **OG share image** (rendered 1200×630 via headless → og-image.png;
+verified sharp), **custom 404**, **robots.txt + sitemap.xml**, **apple-touch-icon + theme-color**, and a
+**`?demo=1` sample-report** mode (real engine on a crafted sample — also a "see a sample" hook).
+ALL SURFACES SCREENSHOT-VERIFIED: landing (header fixed), the **report** (grade tile, risk pill, category
+cards, findings + fix boxes + WCAG deep-links — looks great), 404, OG image, mobile. Origin-curl confirmed
+robots/sitemap/og/touch-icon all 200 and the custom 404 serves.
+
+**Readiness verdict: READY TO PUSH (it's live).** Production caveats logged: (1) the free check depends on
+public CORS proxies (allorigins/corsproxy/thingproxy) — has 3-way fallback + graceful error, but the real fix
+is an own serverless proxy = the Vercel Pro path. (2) Fonts load from Google Fonts — slightly off-brand for a
+privacy tool; self-host Fraunces/Hanken later for full "no third-party" consistency. Neither blocks launch.
+
 ## Status / next
 - ✅ Built, deployed, live. Adversarial self-review done; smoke-test the live URL on a few real
   sites (a clean site, a no-code site, a JS-only SPA to see the graceful "couldn't read" state).
