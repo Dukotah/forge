@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-06-07",
+  "updated": "2026-06-08",
   "ideas": [
     {
       "id": "vibe-app-health-checker",
@@ -79,11 +79,11 @@
         "Resend (lead email)"
       ],
       "brandName": "QuotePilot",
-      "status": "shipped",
+      "status": "killed",
       "liveUrl": "https://dukotah.github.io/quotepilot/",
       "repo": "https://github.com/Dukotah/quotepilot",
       "createdSession": "2026-06-07",
-      "notes": "Validator RESHAPE 84->74: free incumbents own the builder lane, so the 'no standalone qualifier exists' gap is false. Compete on done-for-you install + ownership through the Copper Bay channel, not features. Natural bundle with the Job-Completion Report into a trades stack."
+      "notes": "KILLED by owner 2026-06-08: weak idea, scrapped after ship. Free incumbents own the builder lane and the consumer cost-estimator reshape had no real distribution edge or moat. Do not revisit as a standalone product; the only salvageable thread is a configured embed bundled INTO the Copper Bay trades stack, not a Labs product. Repo/Pages teardown pending owner OK. Prior note: Validator RESHAPE 84->74."
     },
     {
       "id": "marina-slip-waitlist-lite",
