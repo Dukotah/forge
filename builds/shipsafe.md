@@ -8,6 +8,15 @@
   source-HTML checks (accessibility / privacy / schema / trust) → plain-English **demand-letter
   risk** report with a prioritized fix list, copy-report, and a Copper Bay Tech "get it fixed" CTA.
 
+## Phase 1 de-slop — SHIPPED 2026-06-07 (commits d295d8f + 89c645c)
+Full credibility pass so it doesn't read as AI-built: **Copper Bay Labs brand** (copper + bay palette,
+Fraunces serif / Hanken Grotesk pairing, custom **lifebuoy logo**), **custom SVG icon set replacing
+every emoji**, redesigned **letter-grade report** (A–F) with WCAG deep-links + skeleton loading,
+**Methodology + About** trust pages, **self-exemplary accessibility** (skip-link, landmarks,
+focus-visible, reduced-motion, AAA contrast, footer legal links so it passes its own checks), and a
+**human copy pass**. Screenshot-verified live (serif hero, copper motif, SVG icons, no emoji).
+Remaining Phase 1: P1.4 shareable OG result image, P1.9 real domain (owner). Phases 2–4 next.
+
 ## Status / next
 - ✅ Built, deployed, live. Adversarial self-review done; smoke-test the live URL on a few real
   sites (a clean site, a no-code site, a JS-only SPA to see the graceful "couldn't read" state).
