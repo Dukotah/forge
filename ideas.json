@@ -1,8 +1,28 @@
 {
   "schemaVersion": 1,
   "updated": "2026-06-08",
-  "scopeNote": "Whole-internet scope per FORGE.md creative mandate. New batches must be category-diverse with at most 1 local/agency-adjacent idea. The 5 parked ideas below are the old narrow local set, kept for revival but off the active pick-list.",
+  "scopeNote": "Whole-internet scope per FORGE.md creative mandate. New batches must be category-diverse with at most 1 local/agency-adjacent idea. SHIPPED so far: ShipSafe, LeakCheck, ExposureCheck (the 'ship-safety suite' — they cross-promote). The 5 parked ideas are the old narrow local set, kept for revival but off the active pick-list.",
   "ideas": [
+    {
+      "id": "live-site-exposure-scanner",
+      "title": "ExposureCheck — is your live site leaking?",
+      "oneliner": "Enter your deployed URL (or paste your built bundle) and see what a public visitor can already grab: exposed .env/.git/config files, secrets hardcoded in your JS bundle, leaked source maps, and internal endpoints.",
+      "problem": "Vibe-coded and rushed deploys routinely ship .env files, public .git folders, source maps, and hardcoded API keys to production where anyone can fetch them. Builders never check, and the existing tools (nuclei, gitleaks on the server, security scanners) are dev-ops/pentest tools non-experts won't run.",
+      "who": "Indie devs, no-code/vibe builders, and small teams who deployed fast — the same audience as ShipSafe + LeakCheck. Global.",
+      "gap": "Server-side / pentest scanners exist but are technical and dev-ops-facing; there's no instant, plain-English, no-signup web tool that checks a DEPLOYED site for leaked secrets/files/source and explains the fix to a non-expert. The wedge is framing + being the deployed-site sibling to LeakCheck.",
+      "score": 80,
+      "breakdown": { "demand": 22, "gap": 17, "buildable": 18, "distribution": 15, "monetization": 5, "defensibility": 3 },
+      "buildPlan": "Static page, client-side. URL mode fetches the page + same-origin scripts via a public CORS-proxy fallback chain and probes ~12 sensitive paths; paste mode (always works) analyzes a pasted bundle. Reuses LeakCheck's detectors + masking + design. ~2-3 day build, zero-secret. Paid later: scheduled re-scans + CI ruleset pack (shared with LeakCheck).",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "ExposureCheck",
+      "category": "dev",
+      "status": "shipped",
+      "liveUrl": "https://dukotah.github.io/exposurecheck/",
+      "repo": "https://github.com/Dukotah/exposurecheck",
+      "createdSession": "2026-06-08",
+      "notes": "SHIPPED 2026-06-08 — product #4, completes the ship-safety suite (ShipSafe=sued / LeakCheck=code secrets / ExposureCheck=live site); the three cross-link to compound traffic. Forked LeakCheck (detectors + design) via a 7-agent swarm, 0 blockers. Independently verified: XSS-safe vs fetched content (no innerHTML; textContent only), secrets masked (live test: 16 exposures, no raw secret in DOM), defensive 'scan your own site' framing. Known limit: URL mode depends on public CORS proxies (paste mode is the reliable path); security-headers check is informational only. See builds/exposurecheck.md."
+    },
     {
       "id": "secret-leak-scanner",
       "title": "LeakCheck — paste-and-scan secret detector",
@@ -21,7 +41,7 @@
       "liveUrl": "https://dukotah.github.io/leakcheck/",
       "repo": "https://github.com/Dukotah/leakcheck",
       "createdSession": "2026-06-08",
-      "notes": "SHIPPED 2026-06-08 — product #3 and the FIRST under the widened-scope mandate. Built by a 7-agent forge swarm (4 build / 2 adversarial verify / 1 finalize). Security promise independently verified in a real browser: zero network on user data, XSS-safe (textContent), secrets always masked (example scan = 10 findings, no raw secret in DOM). Gotcha logged: GitHub push protection blocked the first push on the demo's Stripe test key — fixed by fragmenting example secrets at runtime. Monetization teased: pre-commit hook + CI ruleset pack. See builds/leakcheck.md."
+      "notes": "SHIPPED 2026-06-08 — product #3 and the FIRST under the widened-scope mandate. Built by a 7-agent forge swarm. Security promise independently verified: zero network on user data, XSS-safe, secrets always masked. Gotcha: GitHub push protection blocked the demo's Stripe test key — fixed by fragmenting example secrets at runtime. Forked by ExposureCheck. See builds/leakcheck.md."
     },
     {
       "id": "freelance-true-rate",
@@ -32,7 +52,7 @@
       "gap": "Most 'freelance rate calculators' are thin blog lead-magnets that gloss over tax and utilization. A transparent, shareable, genuinely-does-the-math tool (billable-hour utilization + expense load + tax gross-up) with a copyable breakdown is underserved.",
       "score": 77,
       "breakdown": { "demand": 22, "gap": 14, "buildable": 19, "distribution": 13, "monetization": 6, "defensibility": 3 },
-      "buildPlan": "Static client-side calculator; inputs -> required rate with a labeled waterfall (take-home -> +tax -> +expenses -> / utilization -> rate). Copy/Share + shareable URL encoding the scenario. ~1-2 day build, zero-secret. Paid later: country tax presets, invoice export.",
+      "buildPlan": "Static client-side calculator; inputs -> required rate with a labeled waterfall. Copy/Share + shareable URL encoding the scenario. ~1-2 day build, zero-secret. Paid later: country tax presets, invoice export.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "TrueRate",
@@ -41,7 +61,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Evergreen high-intent SEO ('freelance rate calculator', 'what should I charge'). Honest-by-construction like the killed QuotePilot but with a MUCH broader global audience and a real share loop. No regulated advice — pure arithmetic the user inputs. Strong candidate for the next build."
+      "notes": "Evergreen high-intent SEO. Honest-by-construction with a broad global audience. No regulated advice — pure arithmetic. Owner found it weak in 2026-06-08 review; deprioritized in favor of the dev 'ship-safety' suite."
     },
     {
       "id": "caffeine-curve",
@@ -49,10 +69,10 @@
       "oneliner": "Log your coffees and energy drinks and watch a live curve of how much caffeine is in your bloodstream right now, plus when it'll drop below a sleep-safe level.",
       "problem": "People feel wired at 11pm and don't connect it to the 3pm latte. Caffeine has a ~5-6h half-life, so an afternoon dose is still ~half-strength at bedtime — but nobody does that math.",
       "who": "Basically everyone who drinks caffeine and cares about sleep — a massive, global, relatable audience.",
-      "gap": "There are static 'half-life' blog explainers and a couple of clunky apps, but no clean, instant, no-signup web tool that plots YOUR intake as a live decay curve and tells you a concrete 'safe to sleep by' time. Highly shareable, screenshot-friendly.",
+      "gap": "There are static 'half-life' blog explainers and a couple of clunky apps, but no clean, instant, no-signup web tool that plots YOUR intake as a live decay curve and tells you a concrete 'safe to sleep by' time.",
       "score": 75,
       "breakdown": { "demand": 20, "gap": 16, "buildable": 19, "distribution": 13, "monetization": 4, "defensibility": 3 },
-      "buildPlan": "Static page; add drinks (presets w/ mg) at times -> superposed exponential-decay curve + 'below 50mg by HH:MM' readout. Pure published pharmacokinetics, NOT medical advice (clear disclaimer). ~1-2 day build, zero-secret. Share image baked in.",
+      "buildPlan": "Static page; add drinks at times -> superposed exponential-decay curve + 'below 50mg by HH:MM'. Published pharmacokinetics, NOT medical advice (disclaimer). ~1-2 day build, zero-secret.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "CaffeineCurve",
@@ -61,7 +81,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Viral/shareable ('here's why you can't sleep') with strong evergreen SEO ('how long does caffeine last'). Guardrail-safe: presents a well-documented decay model with disclaimers, makes no health claims or recommendations."
+      "notes": "Viral/shareable with strong evergreen SEO. Guardrail-safe: documented decay model + disclaimers, no health claims. Owner found it weak in 2026-06-08 review; deprioritized in favor of the dev 'ship-safety' suite."
     },
     {
       "id": "subscription-audit",
@@ -69,10 +89,10 @@
       "oneliner": "Add your subscriptions once and see your true annual spend, a renewal calendar you can export, and a ranked 'cancel these first' list by cost-per-use.",
       "problem": "Subscription creep is a near-universal money leak — people genuinely don't know their monthly burn or when things renew, and surprise annual charges hit because nothing reminds them.",
       "who": "Global consumers drowning in SaaS/streaming/app subscriptions — an enormous, evergreen audience.",
-      "gap": "The 'automatic' subscription managers (Rocket Money, etc.) demand bank-account access, which most people won't grant for a quick gut-check. A privacy-first, no-login, manual tool that stays in the browser and just gives clarity + a calendar export fills the trust gap.",
+      "gap": "The 'automatic' subscription managers demand bank-account access, which most people won't grant for a quick gut-check. A privacy-first, no-login, manual tool that stays in the browser fills the trust gap.",
       "score": 74,
       "breakdown": { "demand": 22, "gap": 13, "buildable": 18, "distribution": 12, "monetization": 6, "defensibility": 3 },
-      "buildPlan": "Static page; localStorage-saved list -> annualized total, per-use cost, next-renewal timeline, one-click .ics export of renewal reminders. ~2-day build, zero-secret. Paid later: cloud sync / shared household view.",
+      "buildPlan": "Static page; localStorage list -> annualized total, per-use cost, next-renewal timeline, .ics export. ~2-day build, zero-secret. Paid later: cloud sync.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "SubAudit",
@@ -81,7 +101,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Privacy-first (no bank link) is the wedge AND the marketing angle. Strong SEO ('how much do I spend on subscriptions') and a natural shareable 'I was paying $X/yr' moment. The .ics export gives a recurring reason to return."
+      "notes": "Privacy-first (no bank link) is the wedge AND the marketing angle. Strong SEO and a shareable 'I was paying $X/yr' moment."
     },
     {
       "id": "flashcard-deck-share",
@@ -89,10 +109,10 @@
       "oneliner": "Make a flashcard deck in your browser, study it with spaced repetition, and share the whole deck as a single URL — no account, no app install.",
       "problem": "Anki is powerful but intimidating and install-heavy; Quizlet has paywalled study modes and aggressive monetization. Students just want to make a deck and send it to a study group in one click.",
       "who": "Students, language learners, and self-learners worldwide — a huge, perennial, globally-distributed audience.",
-      "gap": "The friction-free middle is open: a free, no-login, genuinely-shareable deck (state encoded in URL or hosted as static JSON) with real spaced-repetition scheduling and zero paywall. Every shared deck is a viral seed.",
+      "gap": "The friction-free middle is open: a free, no-login, genuinely-shareable deck with real spaced-repetition and zero paywall. Every shared deck is a viral seed.",
       "score": 73,
       "breakdown": { "demand": 20, "gap": 13, "buildable": 17, "distribution": 14, "monetization": 5, "defensibility": 4 },
-      "buildPlan": "Static SPA; build/edit cards, SM-2 spaced repetition in localStorage, export/import + shareable deck URL (compressed) or 'publish' to a static gist-like store. ~3-day build, zero-secret. Paid later: cloud decks, class accounts.",
+      "buildPlan": "Static SPA; SM-2 spaced repetition in localStorage, shareable deck URL or static publish. ~3-day build, zero-secret. Paid later: cloud decks, class accounts.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "DeckShare",
@@ -101,7 +121,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Built-in word-of-mouth loop: every shared deck markets the tool. SEO on '[topic] flashcards' is enormous if we let people publish public decks (compounding content moat). Differentiate on zero-friction + no-paywall vs. Quizlet."
+      "notes": "Built-in word-of-mouth loop: every shared deck markets the tool. Public decks compound into an SEO content moat."
     },
     {
       "id": "frost-planting-calendar",
@@ -109,10 +129,10 @@
       "oneliner": "Enter your location and get your last/first frost dates plus a personalized seed-starting and planting calendar you can export as reminders.",
       "problem": "New gardeners kill plants by sowing too early or transplanting before the last frost. The frost-date + count-back-the-weeks math is annoying and scattered across extension-service PDFs.",
       "who": "The huge, global home-gardening hobby audience — and it spikes hard every spring (seasonal SEO goldmine).",
-      "gap": "Frost-date lookups exist but are ugly, ad-choked, and stop at the date. A clean tool that turns the date into an actual personalized planting schedule per crop, with calendar reminders, is underserved.",
+      "gap": "Frost-date lookups exist but are ugly, ad-choked, and stop at the date. A clean tool that turns the date into a personalized planting schedule with reminders is underserved.",
       "score": 73,
       "breakdown": { "demand": 19, "gap": 16, "buildable": 18, "distribution": 13, "monetization": 4, "defensibility": 3 },
-      "buildPlan": "Static page; bundled frost-date dataset (by region/climate zone) + per-crop weeks-before/after-frost table -> personalized calendar + .ics export. ~2-3 day build, zero-secret (static climate data). Paid later: regional crop packs, garden journal.",
+      "buildPlan": "Static page; bundled frost-date dataset + per-crop weeks-before/after table -> personalized calendar + .ics export. ~2-3 day build, zero-secret.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "FrostPlan",
@@ -121,7 +141,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Massive evergreen + seasonal SEO ('when to plant tomatoes [zone]'). Content moat: per-crop and per-region pages scale to thousands of long-tail SEO landing pages. Honest data from public extension/NOAA-style sources."
+      "notes": "Massive evergreen + seasonal SEO. Content moat: per-crop/per-region pages scale to thousands of long-tail landing pages."
     },
     {
       "id": "race-pace-predictor",
@@ -129,10 +149,10 @@
       "oneliner": "Enter a goal race time and get your exact per-mile/km splits, pace bands, and predicted finish times at every other distance.",
       "problem": "Runners training for a race need to know their target splits and what a recent time predicts for a longer race, but end up juggling spreadsheets or paywalled apps.",
       "who": "The global running and endurance community — millions training for 5Ks to marathons year-round.",
-      "gap": "Plenty of bare pace calculators exist, but few combine a clean split table + race-equivalency prediction (Riegel/Cameron) + a shareable race-day pace band in one polished, no-signup tool.",
+      "gap": "Plenty of bare pace calculators exist, but few combine a clean split table + race-equivalency prediction + a shareable race-day pace band in one polished, no-signup tool.",
       "score": 71,
       "breakdown": { "demand": 19, "gap": 14, "buildable": 19, "distribution": 12, "monetization": 4, "defensibility": 3 },
-      "buildPlan": "Static calculator; goal time -> even/negative splits, pace bands, and equivalent times across standard distances via published prediction formulas. Printable race-day band. ~1-2 day build, zero-secret. Paid later: training-plan generator.",
+      "buildPlan": "Static calculator; goal time -> splits, pace bands, equivalent times via published formulas. Printable race-day band. ~1-2 day build, zero-secret.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "RacePace",
@@ -141,7 +161,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Evergreen SEO ('marathon pace calculator', 'race time predictor'). Shareable printable pace band is a nice race-day virality hook. Lower defensibility (formulas are public) — win on polish + the all-in-one combo."
+      "notes": "Evergreen SEO. Printable pace band is a race-day virality hook. Lower defensibility (public formulas) — win on polish + all-in-one."
     },
     {
       "id": "accessible-palette-forge",
@@ -149,10 +169,10 @@
       "oneliner": "Generate harmonious color palettes and gradients, check every pair for WCAG contrast, and export straight to Tailwind, CSS variables, or SVG.",
       "problem": "Designers and (especially) developers waste time hand-tuning palettes and then ship inaccessible color combos that fail contrast checks. Existing generators rarely bake accessibility in or export to the formats devs actually paste.",
       "who": "The global design + front-end developer community — a large, high-intent, share-happy audience.",
-      "gap": "Color tools are plentiful but fragmented: pretty generators ignore accessibility; contrast checkers ignore generation; few export clean Tailwind/CSS-variable tokens. The integrated 'generate -> verify a11y -> export to my stack' flow is the wedge.",
+      "gap": "Color tools are fragmented: pretty generators ignore accessibility; contrast checkers ignore generation; few export clean Tailwind/CSS tokens. The integrated flow is the wedge.",
       "score": 70,
       "breakdown": { "demand": 20, "gap": 11, "buildable": 19, "distribution": 13, "monetization": 4, "defensibility": 3 },
-      "buildPlan": "Static SPA; palette/gradient generation, live WCAG AA/AAA contrast grid, export to Tailwind config / CSS vars / SVG / JSON. Shareable palette URL. ~2-day build, zero-secret. Paid later: saved brand palettes, design-token sync.",
+      "buildPlan": "Static SPA; palette/gradient gen, live WCAG contrast grid, export to Tailwind/CSS vars/SVG/JSON. Shareable URL. ~2-day build, zero-secret.",
       "deployTarget": "github-pages",
       "needsOwner": [],
       "brandName": "PaletteForge",
@@ -161,18 +181,18 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-08",
-      "notes": "Crowded space (Coolors etc.) so scored at the threshold — only ship if we truly win on the accessibility-first + dev-export angle. Huge dev-SEO and share loop (shared palettes market the tool). Lowest-priority of this batch; included for category breadth."
+      "notes": "Crowded space (Coolors etc.) so scored at threshold — only ship if we win on accessibility-first + dev-export. Lowest-priority; included for breadth."
     },
     {
       "id": "vibe-app-health-checker",
       "title": "Vibe-Coded App Health Checker",
       "oneliner": "Paste a URL and get a plain-English report on ADA/WCAG gaps, missing privacy policy/cookie banner, broken schema, and demand-letter risk.",
-      "problem": "Lovable/Bolt/v0/Cursor produced an explosion of apps from non-devs who ship zero WCAG compliance (4,600+ ADA suits in 2024), no privacy policy, and broken ARIA. They don't find out until a demand letter arrives. Existing checkers (WAVE, axe, Lighthouse) are dev-facing and never cover legal/privacy in plain language.",
+      "problem": "Lovable/Bolt/v0/Cursor produced an explosion of apps from non-devs who ship zero WCAG compliance (4,600+ ADA suits in 2024), no privacy policy, and broken ARIA. They don't find out until a demand letter arrives.",
       "who": "Hundreds of thousands of indie / no-code builders shipping AI-generated sites; Copper Bay's own client-site audits; Boots students.",
-      "gap": "WAVE/axe/Lighthouse/SortSite all exist and are free, but NONE combine accessibility + privacy-policy detection + schema validation + plain-English demand-letter risk framing in one non-technical report. Vibe coders google 'is my website ADA compliant', not 'run axe-core'. The wedge is framing + combined output, not another scanner.",
+      "gap": "WAVE/axe/Lighthouse all exist and are free, but NONE combine accessibility + privacy-policy detection + schema validation + plain-English demand-letter risk framing in one non-technical report. The wedge is framing + combined output.",
       "score": 79,
       "breakdown": { "demand": 21, "gap": 18, "buildable": 16, "distribution": 14, "monetization": 7, "defensibility": 3 },
-      "buildPlan": "Serverless fetch on Vercel wraps Lighthouse + public W3C validators + a privacy-policy/cookie-banner string detector + schema.org structured-data check. Output is a single plain-English risk report card, not a dev dump. ~1 week MVP. Paid tier: $9/mo scheduled re-checks via cron/KV.",
+      "buildPlan": "Serverless/proxy fetch wraps accessibility + privacy + schema checks. Plain-English risk report card. Paid tier: scheduled re-checks.",
       "deployTarget": "vercel-free",
       "needsOwner": [],
       "brandName": "ShipSafe",
@@ -181,7 +201,7 @@
       "liveUrl": "https://dukotah.github.io/shipsafe/",
       "repo": "https://github.com/Dukotah/shipsafe",
       "createdSession": "2026-06-07",
-      "notes": "Product #1, shipped. Broad global dev audience — fits the widened scope and stays. Strongest confidence in the original set; perfect ProductHunt/Discord/dev-SEO fit ('Is my Lovable app ADA-compliant?')."
+      "notes": "Product #1, shipped. Anchor of the 'ship-safety suite' (legal/accessibility leg). Broad global dev audience. Perfect ProductHunt/Discord/dev-SEO fit."
     },
     {
       "id": "reserveright-winery-charter",
@@ -201,7 +221,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-07",
-      "notes": "PARKED 2026-06-08 under the widened-scope mandate: distribution depends entirely on the owner's private local channel, which no longer counts as reach. Revivable if the owner specifically wants a local play. Distribution score above is legacy (pre-rubric-change)."
+      "notes": "PARKED 2026-06-08 under the widened-scope mandate: distribution depends entirely on the owner's private local channel, which no longer counts as reach. Revivable if the owner specifically wants a local play."
     },
     {
       "id": "marina-slip-waitlist-lite",
@@ -221,13 +241,13 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-07",
-      "notes": "PARKED 2026-06-08 under widened scope (local/seed-client distribution). NOTE: this is the most defensible of the parked set because it complements the owner's existing marina-booking SaaS and has a real seed client (Lake Sonoma) — revive first if the owner wants to do a local one."
+      "notes": "PARKED 2026-06-08 under widened scope. NOTE: most defensible of the parked set — complements the owner's existing marina-booking SaaS and has a real seed client (Lake Sonoma). Revive first if the owner wants a local one."
     },
     {
       "id": "job-completion-report-review-push",
       "title": "Job-Completion Report + Review Push",
       "oneliner": "Tech snaps before/after photos and the customer gets a branded PDF of what was done plus a one-tap Google-review CTA while the goodwill is fresh.",
-      "problem": "CompanyCam is photo-only; ServiceTitan/Jobber bury photos inside expensive suites. Nobody owns the customer-facing 'completion moment' that prevents disputes and harvests reviews.",
+      "problem": "CompanyCam is photo-only; ServiceTitan/Jobber bury photos inside expensive suites. Nobody owns the customer-facing 'completion moment'.",
       "who": "Roofers, painters, HVAC, plumbers — Copper Bay's trades base.",
       "gap": "Photo apps are internal-facing; suites treat photos as secondary; none close the customer-facing review loop with a branded completion report.",
       "score": 71,
@@ -241,18 +261,18 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-07",
-      "notes": "PARKED 2026-06-08 under widened scope (trades/local channel + heaviest build of the set). Revivable as part of a Copper Bay trades stack."
+      "notes": "PARKED 2026-06-08 under widened scope (trades/local channel + heaviest build). Revivable as part of a Copper Bay trades stack."
     },
     {
       "id": "local-geo-audit-lead-magnet",
       "title": "Local GEO Audit (agency lead magnet)",
-      "oneliner": "Enter a business name and location to get a report card on AI-Overview citation, LocalBusiness JSON-LD validity, and NAP consistency — as a free Copper Bay lead magnet.",
+      "oneliner": "Enter a business name and location to get a report card on AI-Overview citation, LocalBusiness JSON-LD validity, and NAP consistency.",
       "problem": "AI Overviews hit ~25.8% of US searches and local businesses fear being invisible to AI search. Paid GEO tools are generalist and $49-199/mo.",
       "who": "Local businesses worried about AI-search visibility, and the agency that pitches them.",
-      "gap": "Free AI-visibility checkers are already crowding; the zero-secret slice (client-side JSON-LD + NAP validation as a funnel to 'book a GEO audit') is an agency distribution asset, not a product.",
+      "gap": "Free AI-visibility checkers are already crowding; the zero-secret slice is an agency distribution asset, not a product.",
       "score": 65,
       "breakdown": { "demand": 20, "gap": 13, "buildable": 13, "distribution": 14, "monetization": 4, "defensibility": 1 },
-      "buildPlan": "Static explainer + client-side JSON-LD/schema validator + NAP consistency check + 'book a GEO audit' CTA. 1-2 days.",
+      "buildPlan": "Static explainer + client-side JSON-LD/schema validator + NAP check + 'book a GEO audit' CTA. 1-2 days.",
       "deployTarget": "github-pages",
       "needsOwner": ["SerpAPI/Serper (only for the live AI-Overview citation tier later)"],
       "brandName": "VisibleAI",
@@ -261,7 +281,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-07",
-      "notes": "PARKED 2026-06-08: below the 70 threshold AND it was always an agency lead-magnet rather than a standalone product. Belongs to Copper Bay marketing, not the Labs portfolio."
+      "notes": "PARKED 2026-06-08: below threshold AND always an agency lead-magnet rather than a standalone product. Belongs to Copper Bay marketing, not the Labs portfolio."
     },
     {
       "id": "review-pulse-white-label",
@@ -281,7 +301,7 @@
       "liveUrl": "",
       "repo": "",
       "createdSession": "2026-06-07",
-      "notes": "PARKED 2026-06-08: below threshold and too crowded to win as a standalone. Only viable bundled into a Copper Bay trades stack, not as a Labs product."
+      "notes": "PARKED 2026-06-08: below threshold and too crowded to win as a standalone. Only viable bundled into a Copper Bay trades stack."
     },
     {
       "id": "contractor-quote-page-agency-install",
@@ -301,7 +321,7 @@
       "liveUrl": "",
       "repo": "https://github.com/Dukotah/quotepilot",
       "createdSession": "2026-06-07",
-      "notes": "KILLED by owner 2026-06-08: weak idea, scrapped after ship. Teardown DONE 2026-06-08 — GitHub Pages disabled (live site removed) and repo archived/read-only. Full hard-delete pending (PAT lacks delete_repo scope). No defensible distribution loop or moat. Do not revisit as a standalone product."
+      "notes": "KILLED by owner 2026-06-08. Teardown DONE — GitHub Pages disabled and repo archived/read-only (full hard-delete pending; PAT lacks delete_repo scope). No defensible distribution loop or moat. Do not revisit as a standalone product."
     }
   ]
 }
