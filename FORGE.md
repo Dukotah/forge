@@ -86,6 +86,12 @@ owner delegated full creative control of naming and direction.
 7. **Breadth is mandatory** — a scout batch that is single-category or local/agency-skewed is a
    FAILED batch (see the creative mandate). Diversity across audiences and categories is required,
    not optional.
+8. **`ideas.json` is append-/update-only — NEVER destructive.** Scout adds new ideas and may update
+   an idea's own fields, but must NEVER drop, overwrite, or recycle the array slot of any idea whose
+   `status` is `shipped`, `greenlit`, or `building`. Shipped products are the permanent record of
+   what's live. Before writing, load the current file and diff: if a shipped/greenlit id would
+   disappear, the write is a bug — abort and reconcile. (A 2026-06-10 scout run violated this and
+   silently dropped 7 shipped/greenlit products; recovered from git history.)
 
 ## ideas.json schema
 

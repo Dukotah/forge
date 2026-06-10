@@ -1,0 +1,76 @@
+/* Copper Bay Labs — shared design system. Products fork this and add product-specific rules
+   BELOW the marked line. Keep tokens in sync so the suite looks like one family.
+   RULE: never reference an undefined var(--token) — it renders invisible but still builds green. */
+:root {
+  --copper: #b87333;          /* brand accent */
+  --copper-dark: #8c5527;
+  --copper-tint: #f6ede3;
+  --ink: #1a1a1a;             /* primary text */
+  --muted: #5b5b5b;           /* secondary text */
+  --line: #e3e0db;            /* borders */
+  --bg: #ffffff;
+  --surface: #faf8f5;         /* cards / raised */
+  --surface-2: #f2efe9;
+  --ok: #2e7d4f; --warn: #b8860b; --bad: #b3331f;
+  --radius: 12px;
+  --maxw: 880px;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.04);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2efe9; --muted: #b3aea6; --line: #34302b; --bg: #161412;
+    --surface: #1f1c19; --surface-2: #262220; --copper-tint: #2a211a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font); color: var(--ink); background: var(--bg);
+  line-height: 1.55; font-size: 17px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+a { color: var(--copper-dark); }
+a:hover { color: var(--copper); }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--ink); color: var(--bg); padding: 8px 12px;
+  border-radius: 8px; z-index: 10; }
+
+/* Header */
+header.site { border-bottom: 1px solid var(--line); background: var(--surface); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; padding-bottom: 14px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink);
+  text-decoration: none; font-size: 1.15rem; }
+.brand img { width: 28px; height: 28px; }
+nav.site a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: .95rem; }
+nav.site a:hover { color: var(--copper); }
+
+/* Hero */
+.hero { padding: 44px 0 28px; }
+.hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; margin: 0 0 12px; }
+.hero p.lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 8px; max-width: 60ch; }
+.badge { display: inline-flex; align-items: center; gap: 6px; background: var(--copper-tint);
+  color: var(--copper-dark); border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 12px; font-size: .85rem; font-weight: 600; }
+
+/* Cards / tool surface */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; box-shadow: var(--shadow); margin: 18px 0; }
+label { display: block; font-weight: 600; margin: 14px 0 6px; font-size: .95rem; }
+input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--copper); outline-offset: 1px; }
+button, .btn { font: inherit; font-weight: 600; cursor: pointer; border-radius: 8px;
+  padding: 11px 18px; border: 1px solid var(--copper-dark); background: var(--copper);
+  color: #fff; }
+button:hover, .btn:hover { background: var(--copper-dark); }
+button.secondary { background: transparent; color: var(--copper-dark); }
+
+/* Footer + cross-promo */
+footer.site { border-top: 1px solid var(--line); background: var(--surface); margin-top: 48px;
+  padding: 28px 0; color: var(--muted); font-size: .92rem; }
+footer.site .promo { display: flex; flex-wrap: wrap; gap: 14px; margin: 8px 0 16px; }
+footer.site .promo a { color: var(--copper-dark); text-decoration: none; font-weight: 600; }
+footer.site .label { font-weight: 700; color: var(--ink); }
+
+/* ===== product-specific rules below this line ===== */
