@@ -39,3 +39,4 @@ Rationale: paying to send traffic into an unproven funnel just buys an expensive
 |---|---|---|---|---|---|
 | 2026-06-10 | 0 | 0 | 0 | $0 | Baseline. Domain migrated, CTAs live, Search Console verified, cornerstone post shipped. Awaiting owner's first launch post. |
 | 2026-06-10 | 0 | 0 | 0 | $0 | DISTRIBUTION STARTED. Channels live: LinkedIn (checklist), Dev.to (https://dev.to/dukotah_hutcheon/the-5-minute-pre-launch-checklist-for-ai-generated-apps-203e, canonical→checklist). HN Show HN pending owner login. No leads yet (expected, <1h). |
+| 2026-06-10 | 0 | 0 | 0 | $0 | PORTFOLIO 11→16 tools. Shipped 5 new (cspbuilder, ogpreview, schemamaker, imagecompressor, exifviewer) — all live, in hub+sitemap+dashboard, each with lead CTA. Fixed verify/deploy scripts (were pointed at old domain). Note: more tools ≠ more conversion until traffic is proven; these add SEO surface + traffic magnets (image compressor / exif privacy are high-volume evergreen searches). |
