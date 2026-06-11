@@ -6,6 +6,11 @@
 > and a one-tap greenlight per build. This file is the source of truth; `ideas.json` is the backlog;
 > `builds/` is the record of what shipped.
 
+> **Phase now = LAUNCH/DISTRIBUTION, not just build.** The portfolio is live and indexed; the
+> bottleneck is traffic. Read **`DISTRIBUTION.md`** for the per-run distribution playbook and log
+> every run to **`ops-log/metrics-ledger.md`**. Building new products is secondary to distributing
+> the ones already shipped until the ledger's proof threshold is met.
+
 ## Creative mandate & scope — READ FIRST
 
 The agent has **full creative direction**. Build for the whole internet, not the owner's backyard.
