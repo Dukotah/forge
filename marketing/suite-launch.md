@@ -6,10 +6,10 @@
 
 **The suite:** three free, client-side, no-signup tools for indie and AI-assisted ("vibe-coded") developers. (DepCheck, the 4th, is now live too — fold it into the copy when launching.)
 
-- **ShipSafe** — https://dukotah.github.io/shipsafe/ — paste a URL, get a plain-English ADA/WCAG + privacy risk report ("will you get sued?")
-- **LeakCheck** — https://dukotah.github.io/leakcheck/ — paste code or your `.env`, find exposed API keys & secrets, 100% in your browser ("did you leak a secret?")
-- **ExposureCheck** — https://dukotah.github.io/exposurecheck/ — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, leaked source maps ("is your live site leaking?")
-- **DepCheck** — https://dukotah.github.io/depcheck/ — paste your `package.json`, find vulnerable/typosquatted/abandoned/risky-licensed dependencies ("are your dependencies a liability?")
+- **ShipSafe** — https://labs.copperbaytech.com/shipsafe/ — paste a URL, get a plain-English ADA/WCAG + privacy risk report ("will you get sued?")
+- **LeakCheck** — https://labs.copperbaytech.com/leakcheck/ — paste code or your `.env`, find exposed API keys & secrets, 100% in your browser ("did you leak a secret?")
+- **ExposureCheck** — https://labs.copperbaytech.com/exposurecheck/ — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, leaked source maps ("is your live site leaking?")
+- **DepCheck** — https://labs.copperbaytech.com/depcheck/ — paste your `package.json`, find vulnerable/typosquatted/abandoned/risky-licensed dependencies ("are your dependencies a liability?")
 
 ---
 
@@ -21,9 +21,9 @@
 
 I built three small web tools for people shipping sites fast (often with AI help) who don't have a security or compliance person to check their work. All three are free, require no signup, and run entirely in your browser — nothing you paste is sent to a server.
 
-- ShipSafe (https://dukotah.github.io/shipsafe/): paste a URL and get a plain-English report on likely ADA/WCAG accessibility and privacy issues — the kind of thing that shows up in demand letters. It's a heuristic checker, not legal advice.
-- LeakCheck (https://dukotah.github.io/leakcheck/): paste code or a `.env` file and it flags exposed API keys, tokens, and other secrets using pattern matching. Because it's client-side, you can safely paste real secrets — they never leave the tab.
-- ExposureCheck (https://dukotah.github.io/exposurecheck/): enter a live URL and it checks for publicly reachable `.env`/`.git` files, secrets left in your JS bundle, and leaked source maps.
+- ShipSafe (https://labs.copperbaytech.com/shipsafe/): paste a URL and get a plain-English report on likely ADA/WCAG accessibility and privacy issues — the kind of thing that shows up in demand letters. It's a heuristic checker, not legal advice.
+- LeakCheck (https://labs.copperbaytech.com/leakcheck/): paste code or a `.env` file and it flags exposed API keys, tokens, and other secrets using pattern matching. Because it's client-side, you can safely paste real secrets — they never leave the tab.
+- ExposureCheck (https://labs.copperbaytech.com/exposurecheck/): enter a live URL and it checks for publicly reachable `.env`/`.git` files, secrets left in your JS bundle, and leaked source maps.
 
 They're separate tools but cross-link, since "did I leak a secret," "is my live site exposing files," and "will this get me a compliance complaint" tend to come up together.
 
@@ -43,9 +43,9 @@ Hey r/webdev — I've been building a few small tools for the "ship it fast" cro
 
 All three are free, no signup, and run 100% client-side (nothing you paste leaves your browser):
 
-- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG accessibility + privacy risk report. Aimed at the "could this get me a demand letter" question. https://dukotah.github.io/shipsafe/
-- **LeakCheck** — paste code or your `.env`, find exposed API keys and secrets. Client-side, so you can paste real secrets safely. https://dukotah.github.io/leakcheck/
-- **ExposureCheck** — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, and leaked source maps. https://dukotah.github.io/exposurecheck/
+- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG accessibility + privacy risk report. Aimed at the "could this get me a demand letter" question. https://labs.copperbaytech.com/shipsafe/
+- **LeakCheck** — paste code or your `.env`, find exposed API keys and secrets. Client-side, so you can paste real secrets safely. https://labs.copperbaytech.com/leakcheck/
+- **ExposureCheck** — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, and leaked source maps. https://labs.copperbaytech.com/exposurecheck/
 
 They're heuristic scanners — first pass, not a full audit — so false positives are possible. I'd love feedback on detection gaps, confusing output, or checks you'd want added. Not selling anything; these are free and stay free. Roast away.
 
@@ -57,9 +57,9 @@ They're heuristic scanners — first pass, not a full audit — so false positiv
 
 If you're a solo founder shipping your own SaaS, you're also your own security and compliance team — which usually means those checks just don't happen. I built three free tools to make the basic ones a 30-second job:
 
-- **LeakCheck** — paste code/`.env`, find exposed API keys & secrets. Runs in your browser, so pasting real secrets is fine. https://dukotah.github.io/leakcheck/
-- **ExposureCheck** — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, leaked source maps. https://dukotah.github.io/exposurecheck/
-- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG + privacy risk report (the "will I get a demand letter" check). https://dukotah.github.io/shipsafe/
+- **LeakCheck** — paste code/`.env`, find exposed API keys & secrets. Runs in your browser, so pasting real secrets is fine. https://labs.copperbaytech.com/leakcheck/
+- **ExposureCheck** — enter your live URL, find exposed `.env`/`.git` files, secrets in your JS bundle, leaked source maps. https://labs.copperbaytech.com/exposurecheck/
+- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG + privacy risk report (the "will I get a demand letter" check). https://labs.copperbaytech.com/shipsafe/
 
 No signup, no email gate, free, and nothing you paste is sent anywhere. They're heuristic first-pass checks, not a substitute for a real audit or legal advice.
 
@@ -73,9 +73,9 @@ I built these for my own launches and figured other founders here could use them
 
 Sharing a few free tools I built, mostly aimed at small teams and solo devs without a dedicated security pipeline. They run entirely client-side — no backend, no signup, nothing you paste is transmitted — which matters when the input is literally secrets.
 
-- **LeakCheck** — paste code or `.env`, pattern-matches for exposed API keys, tokens, and secrets in the browser. https://dukotah.github.io/leakcheck/
-- **ExposureCheck** — give it a live URL, checks for reachable `.env`/`.git` files, secrets baked into the JS bundle, and leaked source maps. https://dukotah.github.io/exposurecheck/
-- **ShipSafe** — URL in, plain-English ADA/WCAG + privacy risk report out. https://dukotah.github.io/shipsafe/
+- **LeakCheck** — paste code or `.env`, pattern-matches for exposed API keys, tokens, and secrets in the browser. https://labs.copperbaytech.com/leakcheck/
+- **ExposureCheck** — give it a live URL, checks for reachable `.env`/`.git` files, secrets baked into the JS bundle, and leaked source maps. https://labs.copperbaytech.com/exposurecheck/
+- **ShipSafe** — URL in, plain-English ADA/WCAG + privacy risk report out. https://labs.copperbaytech.com/shipsafe/
 
 These are heuristic, not a replacement for proper SAST/secret-scanning in CI — think of them as a quick manual gut-check before or alongside the real pipeline. I'd value feedback from this crowd specifically on the detection logic: regex/entropy false-positive rates, secret formats I'm missing, and exposure checks worth adding. Not monetized, no upsell.
 
@@ -97,9 +97,9 @@ I kept shipping projects fast (a lot of it AI-assisted) and realized I had no qu
 
 So I built three small tools that fix the parts that bugged me most:
 
-- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG + privacy risk report → https://dukotah.github.io/shipsafe/
-- **LeakCheck** — paste code/`.env`, find exposed keys & secrets → https://dukotah.github.io/leakcheck/
-- **ExposureCheck** — enter your live URL, find exposed files, bundle secrets, leaked source maps → https://dukotah.github.io/exposurecheck/
+- **ShipSafe** — paste a URL, get a plain-English ADA/WCAG + privacy risk report → https://labs.copperbaytech.com/shipsafe/
+- **LeakCheck** — paste code/`.env`, find exposed keys & secrets → https://labs.copperbaytech.com/leakcheck/
+- **ExposureCheck** — enter your live URL, find exposed files, bundle secrets, leaked source maps → https://labs.copperbaytech.com/exposurecheck/
 
 Three things I care about: they're **free** with **no signup**, they run **100% in your browser** (so pasting real secrets is safe — nothing leaves the tab), and they **cross-link**, because these worries tend to show up together.
 
@@ -123,7 +123,7 @@ Paste a URL → plain-English ADA/WCAG accessibility + privacy risk report.
 
 Basically: "could this get me a demand letter?" answered in seconds.
 
-https://dukotah.github.io/shipsafe/
+https://labs.copperbaytech.com/shipsafe/
 
 **3/**
 LeakCheck
@@ -132,7 +132,7 @@ Paste code or your `.env` → it flags exposed API keys, tokens, and secrets.
 
 100% client-side, so you can paste *real* secrets safely — they never leave the tab.
 
-https://dukotah.github.io/leakcheck/
+https://labs.copperbaytech.com/leakcheck/
 
 **4/**
 ExposureCheck
@@ -141,7 +141,7 @@ Enter your live URL → finds exposed `.env`/`.git` files, secrets baked into yo
 
 The "is my live site quietly leaking?" check.
 
-https://dukotah.github.io/exposurecheck/
+https://labs.copperbaytech.com/exposurecheck/
 
 **5/**
 They're separate tools but cross-link, because "did I leak a secret," "is my site exposing files," and "will this get me a complaint" all tend to hit at the same time.
@@ -172,9 +172,9 @@ A note in the spirit of honesty: these just launched, and they're heuristic scan
 
 If you try them, I'd genuinely value your feedback on what to add or improve.
 
-ShipSafe: https://dukotah.github.io/shipsafe/
-LeakCheck: https://dukotah.github.io/leakcheck/
-ExposureCheck: https://dukotah.github.io/exposurecheck/
+ShipSafe: https://labs.copperbaytech.com/shipsafe/
+LeakCheck: https://labs.copperbaytech.com/leakcheck/
+ExposureCheck: https://labs.copperbaytech.com/exposurecheck/
 
 ---
 ---
