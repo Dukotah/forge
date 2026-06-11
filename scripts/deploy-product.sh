@@ -10,8 +10,8 @@ dir="$base/$slug"
 if [ -z "$slug" ] || [ ! -d "$dir" ]; then echo "usage: deploy-product.sh <slug> \"<description>\" [base-dir]"; exit 2; fi
 cd "$dir" || exit 2
 
-# Gate on verification first.
-"$(dirname "$0")/verify-product.sh" "$slug" "$base" || { echo "ABORT: verification failed."; exit 1; }
+# Gate on verification first (absolute path — we've already cd'd into the product dir).
+"$base/forge/scripts/verify-product.sh" "$slug" "$base" || { echo "ABORT: verification failed."; exit 1; }
 
 printf 'BUILD-NOTES.md\n' > .gitignore
 if [ ! -d .git ]; then
@@ -33,8 +33,8 @@ fi
 gh api -X POST "repos/Dukotah/$slug/pages" -f "source[branch]=main" -f "source[path]=/" >/dev/null 2>&1 \
   || echo "(Pages already enabled or pending)"
 
-# Poll until live
-url="https://dukotah.github.io/$slug/"
+# Poll until live (project pages inherit the user-site custom domain)
+url="https://labs.copperbaytech.com/$slug/"
 i=0
 until [ "$(curl -s -o /dev/null -w '%{http_code}' "$url")" = "200" ] || [ $i -ge 40 ]; do sleep 3; i=$((i+1)); done
 code="$(curl -s -o /dev/null -w '%{http_code}' "$url")"

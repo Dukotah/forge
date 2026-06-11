@@ -9,7 +9,7 @@ dir="$base/$slug"
 if [ -z "$slug" ] || [ ! -d "$dir" ]; then echo "usage: verify-product.sh <slug> [base-dir]"; exit 2; fi
 cd "$dir" || exit 2
 
-url="https://dukotah.github.io/$slug/"
+url="https://labs.copperbaytech.com/$slug/"
 fail=0
 note() { echo "  - $1"; fail=1; }
 
@@ -34,7 +34,7 @@ grep -q "$url" sitemap.xml || note "sitemap.xml does not reference $url"
 # wrong-sibling-slug detector: any other tool's slug in canonical/og of index.html
 for other in shipsafe leakcheck exposurecheck depcheck complykit hardencheck invoicequick bookdeposit creatorvault pactsign recoverflow; do
   [ "$other" = "$slug" ] && continue
-  grep -Eq "(canonical|og:url)[^>]*dukotah.github.io/$other/" index.html && note "index.html points at sibling slug: $other"
+  grep -Eq "(canonical|og:url)[^>]*labs.copperbaytech.com/$other/" index.html && note "index.html points at sibling slug: $other"
 done
 
 # 5. Slop

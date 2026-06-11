@@ -38,3 +38,4 @@ Rationale: paying to send traffic into an unproven funnel just buys an expensive
 | Date | Impressions(28d) | Clicks(28d) | Leads(total) | Revenue | Notable / actions taken |
 |---|---|---|---|---|---|
 | 2026-06-10 | 0 | 0 | 0 | $0 | Baseline. Domain migrated, CTAs live, Search Console verified, cornerstone post shipped. Awaiting owner's first launch post. |
+| 2026-06-10 | 0 | 0 | 0 | $0 | DISTRIBUTION STARTED. Channels live: LinkedIn (checklist), Dev.to (https://dev.to/dukotah_hutcheon/the-5-minute-pre-launch-checklist-for-ai-generated-apps-203e, canonical→checklist). HN Show HN pending owner login. No leads yet (expected, <1h). |
