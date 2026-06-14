@@ -982,11 +982,11 @@
       "needsOwner": [],
       "brandName": "JWTCheck",
       "category": "dev",
-      "status": "greenlit",
-      "liveUrl": null,
-      "repo": null,
+      "status": "shipped",
+      "liveUrl": "https://labs.copperbaytech.com/jwtcheck/",
+      "repo": "https://github.com/Dukotah/jwtcheck",
       "createdSession": "2026-06-13",
-      "notes": "Proposed + greenlit 2026-06-13 on owner request ('propose a brand-new dev tool that fits the converting-audience rule'). Replaces the mined-out dev vein in the backlog (remaining researched ideas were consumer; TrueRate already owner-rejected 6-08). Detector → fits the suite lead-CTA funnel (unlike JSONSafe, a pure utility). Joins the -Check security family. SECURITY NOTE for build: signature-verify secret/PEM and the token itself must stay client-side (Web Crypto); CTA mailto must send finding counts/types only, NEVER the token or secret — same rule as LeakCheck."
+      "notes": "Proposed + greenlit 2026-06-13 on owner request ('propose a brand-new dev tool that fits the converting-audience rule'). Replaces the mined-out dev vein in the backlog (remaining researched ideas were consumer; TrueRate already owner-rejected 6-08). Detector → fits the suite lead-CTA funnel (unlike JSONSafe, a pure utility). Joins the -Check security family. SECURITY NOTE for build: signature-verify secret/PEM and the token itself must stay client-side (Web Crypto); CTA mailto must send finding counts/types only, NEVER the token or secret — same rule as LeakCheck. | SHIPPED 2026-06-13. Decode+claims-table+severity audit (alg:none/no-exp/weak-alg/missing iss-aud) + optional Web Crypto signature verify (HS/RS/ES/PS) + findings-only lead CTA. QA + verify passed."
     },
     {
       "id": "seasonal-color-quiz",
