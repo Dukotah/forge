@@ -955,11 +955,11 @@
       "needsOwner": [],
       "brandName": "JSONSafe",
       "category": "dev",
-      "status": "researched",
-      "liveUrl": "",
-      "repo": "",
+      "status": "shipped",
+      "liveUrl": "https://labs.copperbaytech.com/jsonsafe/",
+      "repo": "https://github.com/Dukotah/jsonsafe",
       "createdSession": "2026-06-10",
-      "notes": "The 2025 JSONFormatter.org data-leak story is the marketing hook — every security write-up is a backlink. Semantic JSON diff (object key awareness vs. raw text diff) is the feature gap that it-tools and similar aggregators don't offer. Key risk: SEO competition is fierce; win via the security-angle community posts on HN/r/netsec + the diff feature."
+      "notes": "The 2025 JSONFormatter.org data-leak story is the marketing hook — every security write-up is a backlink. Semantic JSON diff (object key awareness vs. raw text diff) is the feature gap that it-tools and similar aggregators don't offer. Key risk: SEO competition is fierce; win via the security-angle community posts on HN/r/netsec + the diff feature. | SHIPPED 2026-06-13 as JSONSafe (slug jsonsafe). 4-in-1: format/validate (line:col errors, deep sort), tree explorer, semantic key-aware diff with shareable URL-fragment links, all client-side. Verified + visual-QA passed."
     },
     {
       "id": "seasonal-color-quiz",
