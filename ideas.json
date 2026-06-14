@@ -1635,6 +1635,36 @@
       "repo": "",
       "createdSession": "2026-06-13",
       "notes": "Carrier UX is deliberately confusing (spreading a $1,200 device over 36 months hides the true cost). The 'honest math' framing is the distribution hook — 'I saved $X per year by NOT upgrading my phone' is a natural r/frugal and r/personalfinance post format. Works for any device category (phones, laptops, gaming consoles, e-readers, tablets) so the tool has broad evergreen utility. Key risk: low defensibility (math is simple and competitors can copy the UI); the win is being first with a clean, unbiased shareable output. GUARDRAIL: labeled as an estimate — resale values vary widely, so the tool is directionally accurate, not precise. Distinct from SubAudit (ongoing subscriptions), DebtViz (debt payoff), and MortgageFree (mortgage acceleration)."
+    },
+    {
+      "id": "shipcheck-cli",
+      "title": "ShipCheck — pre-launch report-card CLI for vibe-coded apps",
+      "oneliner": "npx shipcheck scans a project locally and grades it: committed secrets, vulnerable deps, missing security headers, broken SEO & a11y. Zero deps, nothing uploaded.",
+      "problem": "Vibe coders ship fast with AI and miss the boring-but-critical stuff (committed .env, hard-coded keys, vulnerable deps, no security headers, missing meta/alt). Those checks are scattered across separate web tools.",
+      "who": "The global indie-dev / vibe-coder / small-team developer audience — the agency-buyer profile.",
+      "gap": "Folds the whole pre-launch checklist into ONE local command that lives in the dev workflow (npm + GitHub Action + SARIF), instead of pasting code into N separate websites. Distribution-into-the-workflow, mirroring leakcheck-action but bigger.",
+      "score": 80,
+      "breakdown": {
+        "demand": 22,
+        "gap": 16,
+        "buildable": 18,
+        "distribution": 13,
+        "monetization": 6,
+        "defensibility": 5
+      },
+      "buildPlan": "Zero-dep Node CLI: context scanner + 8 auto-discovered analyzers + 4 reporters (terminal/json/markdown/sarif) + CLI flags + .shipcheckrc + GitHub Action + CI. Built via hybrid spine + multi-agent fan-out.",
+      "deployTarget": "npm + github + pages-landing",
+      "needsOwner": [
+        "npm publish (npm login) so bare `npx shipcheck` resolves",
+        "optional GitHub Marketplace listing for the Action"
+      ],
+      "brandName": "ShipCheck",
+      "category": "dev",
+      "status": "shipped",
+      "liveUrl": "https://labs.copperbaytech.com/shipcheck/",
+      "repo": "https://github.com/Dukotah/shipcheck",
+      "createdSession": "2026-06-13",
+      "notes": "SHIPPED 2026-06-13/14. Open-source CLI (v1/v1.0.0), 8 analyzers, 4 reporters, Action+CI, 100 tests, self-scans A+. Landing page served from repo docs/ at labs.copperbaytech.com/shipcheck/. The v2 of the ship-safety suite as a dev-workflow tool."
     }
   ]
 }
