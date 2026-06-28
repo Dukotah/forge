@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-06-27",
+  "updated": "2026-06-28",
   "scopeNote": "Whole-internet scope per FORGE.md creative mandate. New batches must be category-diverse with at most 1 local/agency-adjacent idea. SHIPPED so far: ShipSafe, LeakCheck, ExposureCheck, DepCheck (the 'ship-safety suite' for vibe-coded apps â€” 4 tools that cross-promote; launch kit in marketing/suite-launch.md). The 5 parked ideas are the old narrow local set, kept for revival but off the active pick-list.",
   "ideas": [
     {
@@ -4178,6 +4178,114 @@
       "repo": "",
       "createdSession": "2026-06-27",
       "notes": "SEO: 'fabric yardage calculator', 'how much fabric for a dress', 'fabric calculator for sewing', 'how many yards of fabric for curtains' — steady 10K-80K monthly searches across these queries. Distinct from knitting tools in portfolio (GaugeShift, YarnCalc) — sewing is a parallel hobby with separate communities and search demand. Distribution: r/sewing (900K), r/cosplay (620K — costumes need precise yardage), r/quilting (140K), r/weddingplanning (dress fabric); also strong Pinterest channel for sewing project tools. Mobile-first is critical: sewists use their phones in fabric stores. Monetization: affiliate links to fabric retailers (Joann, Mood Fabrics, online fabric stores); future: expand to notions calculator (thread, zippers, buttons). Defensibility: garment template library grows; add specialty projects (children's sizing, historical costumes, athletic wear) as moat."
+    },
+    {
+      "id": "food-pronounce",
+      "title": "FoodPronounce — hear exactly how to say that menu item before you order",
+      "oneliner": "Type any food, dish, or ingredient name and hear the correct pronunciation instantly — with IPA, phonetic spelling, and a quiz mode to test yourself.",
+      "problem": "Diners freeze at upscale restaurants because they don't know how to say 'gnocchi', 'quinoa', 'Worcestershire', 'pho', 'gyro', or 'foie gras'. General pronunciation sites exist but have no food-specific database, inconsistent audio quality, and no learning loop. The embarrassment is universal — it's not a niche problem.",
+      "who": "Anyone who eats at restaurants or cooks with international ingredients — effectively the entire English-speaking world. Core user: curious home cooks, food enthusiasts, restaurant-goers, people learning to cook from diverse cuisines.",
+      "gap": "HowToPronounce.com and Forvo cover general words but are ad-heavy, inconsistent, and require clicking through to individual word pages. No tool combines a curated food-specific database + IPA + phonetic approximation + Web Speech API TTS audio + a quiz mode in one clean interface. YouTube has individual pronounciation videos, but no searchable structured tool. This gap is real and findable.",
+      "score": 76,
+      "breakdown": {
+        "demand": 17,
+        "gap": 17,
+        "buildable": 20,
+        "distribution": 14,
+        "monetization": 4,
+        "defensibility": 4
+      },
+      "buildPlan": "Static SPA, zero-secret. Curate 300+ food terms covering: French cuisine (bouillabaisse, crêpe, boeuf bourguignon), Italian (gnocchi, bruschetta, prosciutto, arancini), Japanese (edamame, dashi, tonkatsu), global (pho, gyro, quinoa, acai, worcestershire, foie gras, bok choy, kimchi, ceviche). Each entry: word, origin, IPA, phonetic approximation, usage sentence. Web Speech API SpeechSynthesis for in-browser TTS audio (zero external API). Search with instant filter. Quiz mode: hear audio → choose the correct spelling from 4 options (or reverse: see word → pick pronunciation). Shareable quiz result card (screenshot + 'I got 8/10 on FoodPronounce!'). 1-2 day build.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "FoodPronounce",
+      "category": "fun",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-06-28",
+      "notes": "SEO: 'how to pronounce gnocchi', 'how to say quinoa', 'how to pronounce pho', 'foie gras pronunciation', 'bruschetta pronunciation' — each of these exact queries gets 30K-300K monthly searches. Aggregate search demand for food pronunciation is enormous. Distribution: r/NoStupidQuestions (6M), r/Cooking (3.5M), r/food (25M — biggest food subreddit), r/LearnEnglish, r/linguistics; strong shareable moment ('I've been saying bruschetta wrong my whole life'). Virality: quiz mode produces shareable score cards; 'which foods are you mispronouncing?' framing is highly social. Monetization: tip jar; future: language-specific packs (French cuisine deep-dive), pronunciation guides for other domains (wine, spirits, cheese). Defensibility: curated database grows; user submission pipeline adds community content moat over time."
+    },
+    {
+      "id": "carbon-choice",
+      "title": "CarbonChoice — see the carbon footprint of everyday decisions, head-to-head",
+      "oneliner": "Compare two everyday choices side-by-side — fly vs drive, beef vs chicken, new phone vs repair — and instantly see which has the smaller carbon footprint with real numbers and context.",
+      "problem": "People want to make lower-carbon choices but carbon information is fragmented across dense reports and full-lifecycle calculators that ask for 50 inputs. Nobody knows that a single transatlantic flight is equivalent to 3 months of driving, or that repairing your phone vs buying new saves ~70kg CO₂. The comparison format — not the total — is what drives behavior change.",
+      "who": "Environmentally curious consumers globally; students; journalists writing climate pieces; teachers; people who've seen a news story about carbon footprints and want to understand their own choices without filling out a 20-field calculator.",
+      "gap": "Carbon footprint calculators (Carbon Footprint Calculator, EPA carbon calculator, CoolClimate) all ask for annual totals across lifestyle dimensions. No tool gives instant A-vs-B comparisons with visual scale and memorable context sentences. shrinkThatFootprint.com and Our World in Data have articles but no interactive comparison tool. This comparison format is what goes viral — and nobody has built it as a clean tool.",
+      "score": 75,
+      "breakdown": {
+        "demand": 18,
+        "gap": 15,
+        "buildable": 18,
+        "distribution": 14,
+        "monetization": 5,
+        "defensibility": 5
+      },
+      "buildPlan": "Static SPA, zero-secret. Pre-built dataset of ~100 comparison pairs, each with: left choice, right choice, CO₂ values (kg), ratio, a one-sentence context ('That's equivalent to driving X miles' or 'About Y smartphone charges'). Data sourced from Our World in Data, EPA, Project Drawdown, IPCC reports — all open data. UI: search/browse comparison pairs; visual scale bar showing relative size; shareable result card (PNG download or og:image). Categories: transport, food, consumer electronics, home energy, clothing. No API keys needed. ~1.5 day build.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "CarbonChoice",
+      "category": "consumer",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-06-28",
+      "notes": "SEO: 'carbon footprint comparison', 'flying vs driving carbon', 'beef vs chicken carbon footprint', 'carbon footprint of a burger', 'electric car vs gas carbon' — high-volume informational queries with no clean interactive tool in top results. Distribution: r/environment (1.1M), r/ZeroWaste (540K), r/climate (170K), r/EarthPorn (30M — shares striking comparisons), r/interestingasfuck; climate journalists and educators. Virality: comparison cards are inherently shareable ('TIL flying NYC-London is equivalent to 14 months of driving') — Twitter/X engagement machine. Monetization: tip jar; sponsored comparison pairs from sustainability brands; future: API for publishers. Defensibility: curated dataset and quality of context sentences is the moat; community can submit comparisons."
+    },
+    {
+      "id": "body-calc",
+      "title": "BodyCalc — one dashboard for all your body composition and nutrition estimates",
+      "oneliner": "Enter height, weight, age, and activity level once — get BMI, body fat %, TDEE, ideal weight range, and macro split in one clean page, with a monthly check-in log stored locally.",
+      "problem": "People wanting to understand their body composition and caloric needs currently visit 4-5 separate sites: BMI calculator, a separate body fat estimator, a separate TDEE calculator, a macro calculator. Each site is ad-heavy, requires re-entering the same stats, and shows conflicting numbers from different formulas. There's no unified tool that surfaces all these estimates together with clear caveats.",
+      "who": "Anyone trying to understand their body and nutrition — fitness beginners, people managing weight, gym-goers, curious health-focused adults. This is one of the highest-search-volume health calculator categories globally.",
+      "gap": "MyFitnessPal, Cronometer, and similar apps require accounts and focus on logging, not calculation. Calculator.net and similar sites have individual calculators but not unified. No clean, account-free, privacy-respecting (localStorage, no server) unified body composition dashboard exists. The distinguishing feature is: enter stats ONCE, see ALL the numbers, with formula transparency and honest population-estimate disclaimers.",
+      "score": 75,
+      "breakdown": {
+        "demand": 22,
+        "gap": 12,
+        "buildable": 19,
+        "distribution": 13,
+        "monetization": 5,
+        "defensibility": 4
+      },
+      "buildPlan": "Static SPA, zero-secret. Inputs: sex, age, height, weight, activity level (5 options), goal (lose/maintain/gain). Outputs panel: (1) BMI + WHO category; (2) Body fat % via Deurenberg formula (age/sex/BMI method — no tape measure needed); (3) TDEE via Mifflin-St Jeor and Harris-Benedict (show both, explain difference); (4) Ideal weight range via Hamwi formula; (5) Macro split for goal (protein/fat/carb in grams). Monthly check-in log stored in localStorage (no server, no account). Honest disclaimer: 'These are population-average estimates. For personalized guidance, consult a doctor or registered dietitian.' Clean print/share view. ~1.5 day build.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "BodyCalc",
+      "category": "health",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-06-28",
+      "notes": "SEO: 'TDEE calculator', 'BMI calculator', 'body fat percentage calculator', 'macro calculator for weight loss', 'ideal weight calculator' — these are among the highest-volume health search queries (100K-1M+ monthly each). The unified dashboard angle lets this tool rank for all of them at once. Distribution: r/fitness (10M), r/loseit (4.5M), r/bodybuilding (1.8M), r/CICO, r/1200isplenty — the weight/fitness subreddits are enormous and hungry for tools. Viral framing: 'I used 5 different sites; this one does all of it'. Monetization: premium PDF export of full plan; future: affiliate links to nutrition/fitness products (whey protein, kitchen scales). Guardrail strictly followed: disclaimer on every calculation; no regulated medical advice, only population-estimate formulas. Defensibility: localStorage log creates stickiness without server costs."
+    },
+    {
+      "id": "craft-cost",
+      "title": "CraftCost — price your handmade products to actually profit on Etsy",
+      "oneliner": "Enter your materials cost, time, and desired hourly rate — CraftCost calculates the right listing price accounting for Etsy's full fee structure, with a margin slider and a shareable pricing breakdown.",
+      "problem": "Etsy sellers chronically underprice their work because manually calculating Etsy's compound fee structure (listing fee + transaction % + payment processing % + potential offsite ads %) is confusing and error-prone. Sellers who guess wrong lose money on every sale. There is no clean free browser tool that handles the full 2025 Etsy fee structure.",
+      "who": "Etsy sellers globally — there are 8M+ active Etsy sellers, predominantly makers of handmade goods: jewelry, candles, ceramics, knitwear, prints, stickers. Many are hobbyists turning a craft into a side income; pricing confusion is a universal pain in the community.",
+      "gap": "Craftybase (the main tool) requires a paid subscription ($19/mo). The Etsy Seller Handbook has text explanations but no calculator. Generic margin calculators don't know Etsy's fee structure. Spreadsheet templates exist on Pinterest/Etsy itself but require download and setup. No clean, free, instant, web-based tool with the exact current Etsy fee stack exists. This is a high-intent query with no good free answer.",
+      "score": 75,
+      "breakdown": {
+        "demand": 19,
+        "gap": 15,
+        "buildable": 19,
+        "distribution": 12,
+        "monetization": 5,
+        "defensibility": 5
+      },
+      "buildPlan": "Static SPA, zero-secret. Inputs: materials cost ($), time (hours), hourly rate ($), quantity per batch. Fee structure hard-coded (2025 Etsy rates): $0.20 listing fee, 6.5% transaction fee, 3% + $0.25 payment processing, optional 15% offsite ads toggle. Output: minimum break-even price, recommended list price at target margin (margin slider 10%-60%), per-item profit, effective hourly rate. Shareable URL: encode inputs in URL hash so sellers can share their pricing formula with a partner or mentee. Formula transparency: show each fee as a line item. Mobile-friendly for use at craft fairs. ~1 day build.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "CraftCost",
+      "category": "hobby",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-06-28",
+      "notes": "SEO: 'Etsy pricing calculator', 'how to price handmade items for Etsy', 'Etsy fee calculator 2025', 'Etsy profit calculator' — 20K-80K monthly searches, high commercial intent, almost no clean free tools in top results (most results are articles or subscription tools). Distribution: r/EtsySellers (200K), r/Etsy (400K), r/crafts (500K), r/smallbusiness, r/sidehustle; Facebook groups for Etsy sellers are enormous (100K-500K members). Viral framing: 'I was losing money on every sale until I used this'. Monetization: tip jar; future: Shopify fee variant, eBay fee variant, a multi-platform comparison mode (CraftCost Pro). Defensibility: Etsy fee structure updates are a recurring maintenance event that creates a SEO reason to keep the tool current; community trust compounds."
     }
   ]
 }
