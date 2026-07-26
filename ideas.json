@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-25",
+  "updated": "2026-07-26",
   "scopeNote": "Whole-internet scope per FORGE.md creative mandate. New batches must be category-diverse with at most 1 local/agency-adjacent idea. SHIPPED so far: ShipSafe, LeakCheck, ExposureCheck, DepCheck (the 'ship-safety suite' for vibe-coded apps â€” 4 tools that cross-promote; launch kit in marketing/suite-launch.md). The 5 parked ideas are the old narrow local set, kept for revival but off the active pick-list.",
   "ideas": [
     {
@@ -8824,6 +8824,174 @@
       "repo": "",
       "createdSession": "2026-07-25",
       "notes": "High social impact. Confirmed active demand in r/povertyfinance, r/personalfinance, r/foodstamps, r/legaladvice. Accuracy risk: benefit rules vary by state and county — must frame estimates as illustrative and link to official resources. Full 50-state accurate version would need research partnership (needsOwner). MVP value is in the framing: 'if you earn $500/year more you lose $3,200 in benefits — net -$2,700.' That answer is transformative for the target audience even as an approximation."
+    },
+    {
+      "id": "inflation-erosion-calc",
+      "title": "InflationErosion — Real Return & Purchasing Power Visualizer",
+      "oneliner": "Enter your savings rate and current inflation — see your real return and a 30-year chart of how your purchasing power erodes or grows, so you know whether you're actually beating inflation.",
+      "problem": "Millions of savers keep money in HYSAs and CDs thinking they're earning a healthy return, without realizing that once inflation is subtracted, their real gain is near zero or negative. 'Am I beating inflation?' is one of the most common personal finance questions, yet most tools only show nominal returns.",
+      "who": "Anyone with a savings account, HYSA, CD, or investment portfolio — universally relevant to every adult who earns interest or invests. Especially strong among r/personalfinance and r/financialindependence communities and first-time investors globally.",
+      "gap": "Inflation calculators exist (BLS CPI, NerdWallet) but are backward-looking and dry. What's missing is a forward-looking tool that takes a user's specific nominal return, maps it against expected inflation, computes the real return, and visualizes purchasing power erosion over 5/10/20/30 years — framed as 'are you actually getting ahead?'",
+      "score": 79,
+      "breakdown": {
+        "demand": 21,
+        "gap": 15,
+        "buildable": 19,
+        "distribution": 13,
+        "monetization": 6,
+        "defensibility": 5
+      },
+      "buildPlan": "Single-page: inputs for nominal rate, inflation rate (pre-filled with current CPI), initial amount, time horizon. Outputs: real return rate, purchasing power table, Chart.js line showing actual vs. inflation-adjusted balance over time, color-coded 'beating/losing to inflation' verdict. Pure JS, zero-secret. Deploy GitHub Pages.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "InflationErosion",
+      "category": "finance",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "Gap is NOT the CPI calculator (backward-looking, exists everywhere) but the forward-looking 'am I beating inflation?' framing. Viral hook: 'I'm earning 5% but only gaining 2.1% in real terms — and losing $X/yr in purchasing power.' Risk: easily replicated; defensibility via SEO and visualization quality."
+    },
+    {
+      "id": "homeschool-curriculum-mapper",
+      "title": "SchoolMap — Interactive Homeschool Year Planner",
+      "oneliner": "Plan your entire homeschool year in one interactive web tool: add subjects, set weekly hours, pick curricula, and see a visual annual schedule — all in your browser, zero account required.",
+      "problem": "3.4M+ US families homeschool (growing 5%/yr post-pandemic) and planning a full academic year across multiple subjects, grade levels, and learning styles is genuinely hard. Free tools are printable PDFs or static templates; paid platforms cost $50-$80/yr and all require account creation.",
+      "who": "Homeschooling parents globally — primarily US, UK, Canada, Australia where homeschooling has exploded post-pandemic. Also charter co-ops and micro-schools serving up to ~10 students.",
+      "gap": "LearnHaven and HomeTrail offer lightweight web tools, but none give a dynamic, visual annual planner with subject allocation, weekly hour budgets, milestone tracking, and printable output — all without signup. The interactive tools (Homeschool Planet, Scholaric, Homeschool Panda) are all behind paid accounts.",
+      "score": 78,
+      "breakdown": {
+        "demand": 21,
+        "gap": 15,
+        "buildable": 16,
+        "distribution": 12,
+        "monetization": 7,
+        "defensibility": 7
+      },
+      "buildPlan": "Static SPA with localStorage. Features: subject list builder (name, grade level, weekly hours, curriculum text field), weekly hour-allocation bar chart, milestone/goal entry per subject, annual calendar overview (36 weeks), print button. Deploy GitHub Pages. Paid tier (needsOwner): cloud sync, PDF export templates, co-op sharing.",
+      "deployTarget": "github-pages",
+      "needsOwner": [
+        "Vercel + DB (cloud sync, paid tier)",
+        "Stripe (paid tier)"
+      ],
+      "brandName": "SchoolMap",
+      "category": "education",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "Homeschool market is tight-knit and word-of-mouth is powerful — one recommendation in a 50k-member homeschool Facebook group can drive thousands of visits. MVP risk: moderate build complexity vs. simpler calculator ideas; prioritize subject list + hour budget + basic annual view before full drag-and-drop. Defensibility via community adoption."
+    },
+    {
+      "id": "media-kit-gen",
+      "title": "MediaKitPro — Creator Media Kit Generator",
+      "oneliner": "Fill out a short form about your niche, platforms, and stats — and instantly download a professional media kit PDF to pitch brands and sponsors, no design skills or account needed.",
+      "problem": "Every content creator needs a media kit for brand partnerships, but building one requires Canva, Figma, or expensive creator platforms. Most nano- and micro-influencers send unprofessional copy-pasted stat emails instead — and lose deals because of it.",
+      "who": "Instagram, TikTok, YouTube, and newsletter creators pitching brands — from nano-influencers (1k–10k followers) to mid-tier creators globally. The 50M+ creator economy is the target.",
+      "gap": "Canva has templates but requires design decisions and an account. Koji, Klear, and Grin have media kit features only inside paid platforms. There is no free, zero-signup, form-fill → professional PDF media kit tool that produces something genuinely polished enough to send to a brand.",
+      "score": 78,
+      "breakdown": {
+        "demand": 20,
+        "gap": 15,
+        "buildable": 17,
+        "distribution": 13,
+        "monetization": 7,
+        "defensibility": 6
+      },
+      "buildPlan": "Multi-step form: creator name, niche, bio, platforms (handle + follower count + engagement rate), audience demographics (age/gender/top country), content types, collaboration rates (optional), past brands, contact info. Generates a clean HTML media kit from a professional template + jsPDF download. 2 free templates. Zero-secret. GitHub Pages. Paid (needsOwner): premium templates, white-label, agency bulk tier.",
+      "deployTarget": "github-pages",
+      "needsOwner": [
+        "Stripe (premium templates)",
+        "Vercel + DB (saved kits, agency tier)"
+      ],
+      "brandName": "MediaKitPro",
+      "category": "creator",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "Built-in distribution loop: every media kit sent to a brand exposes a 'Made with MediaKitPro' footer link — the product markets itself to brands and other creators who see it. Key risk: jsPDF output quality must look genuinely polished — a mediocre kit would be worse than nothing and kill word-of-mouth."
+    },
+    {
+      "id": "procrastination-cost",
+      "title": "ProcrastiCost — The Price of Waiting Calculator",
+      "oneliner": "Pick a financial decision you've been delaying — investing, refinancing, starting a retirement account — enter how long you've waited, and see the exact dollar cost of your procrastination.",
+      "problem": "Everyone knows procrastination on financial decisions is costly, but few viscerally feel it. 'I'll start investing next year' costs thousands in compound growth. Seeing the specific dollar amount created by the delay makes the abstract concrete and emotionally motivating.",
+      "who": "Anyone who has delayed a financial decision — universal, especially strong among millennials and Gen Z who feel behind on investing. r/personalfinance and r/financialindependence are the primary distribution communities.",
+      "gap": "Opportunity cost calculators exist for specific decisions (rent-vs-buy, debt-payoff) but none frame it as 'what has my specific delay already cost me?' across multiple life scenarios with a shareable dollar-amount result card.",
+      "score": 77,
+      "breakdown": {
+        "demand": 19,
+        "gap": 16,
+        "buildable": 19,
+        "distribution": 14,
+        "monetization": 5,
+        "defensibility": 4
+      },
+      "buildPlan": "Scenario picker: Investment delay (compound loss), Refinancing delay (excess interest), Job switch delay (missed salary), Debt payoff delay (interest accrued), Emergency fund delay. Inputs: amount, rate, duration delayed. Outputs: cost-of-delay dollar figure, animated counter for viral effect, shareable card: 'My procrastination cost me $X in Y years.' Pure JS, zero-secret. GitHub Pages.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "ProcrastiCost",
+      "category": "fun",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "Viral mechanic is the specific dollar amount — 'I waited 4 years to open a Roth IRA and that cost me $6,200' is deeply shareable. 'Surprising math' content goes viral on r/personalfinance routinely. Risk: low defensibility (pure math anyone can replicate); success depends on shareable output card quality and SEO. Keep scenarios tight and relatable."
+    },
+    {
+      "id": "job-plan-90",
+      "title": "NinetyDayKit — New Job 30-60-90 Day Plan Generator",
+      "oneliner": "Answer 8 questions about your new role and get a personalized 30-60-90 day onboarding plan to download and share with your manager — in 2 minutes, no templates to fill out.",
+      "problem": "Starting a new job is one of the highest-stakes career moments. A strong 30-60-90 day plan establishes credibility and accelerates ramp-up — but most new hires use generic Word templates that don't fit their role, or skip the plan entirely and miss the opportunity to set clear expectations.",
+      "who": "Professionals starting new jobs — especially individual contributors and managers in knowledge-work roles globally. Also hiring managers who want to provide a structured plan for new hires. Millions of job starts happen monthly.",
+      "gap": "Generic templates are abundant but no interactive, questionnaire-driven web tool takes your specific role, industry, seniority, and priorities and produces a tailored downloadable plan. The output gap: generic template vs. a plan that mentions your specific job title and first-priority goals.",
+      "score": 76,
+      "breakdown": {
+        "demand": 20,
+        "gap": 15,
+        "buildable": 18,
+        "distribution": 12,
+        "monetization": 6,
+        "defensibility": 5
+      },
+      "buildPlan": "8-question form: role title, industry, seniority (IC/manager/exec), top 3 priorities, key stakeholders, primary metrics, biggest uncertainty, manager style. Assembles a structured 30/60/90 plan with phase-specific goals, actions, and success indicators. Copy-to-clipboard + download as Markdown/text. Pure client-side template assembly, zero-secret. GitHub Pages.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "NinetyDayKit",
+      "category": "productivity",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "LinkedIn distribution is natural — professionals share their plans and tag new employers. SEO: 'free 30-60-90 day plan template' and 'new job action plan' have high search volume. Risk: without AI generation the plans will be semi-generic (specificity comes from the user's own inputs); frame it as a structured assembly tool, not an AI generator. Keep expectations accurate."
+    },
+    {
+      "id": "binge-watch-calc",
+      "title": "BingeMap — TV Show Watch-Time Planner",
+      "oneliner": "Search any TV show, see its total runtime, then plan your binge: how many episodes per day to finish by a deadline, how long at 1.5×, and what you're really committing to.",
+      "problem": "People start TV shows without knowing their total time commitment, get surprised by multi-hundred-hour behemoths, or want to plan 'I'll finish this before the next season drops.' Streaming services deliberately obscure total runtime to reduce commitment anxiety.",
+      "who": "Anyone who watches streaming TV — effectively every internet-connected household globally. Especially active in TV subreddits, fan forums, and 'should I start this show?' discussions.",
+      "gap": "TV databases (IMDB, TheTVDB) list episode counts but offer no binge calculator. A few 'how long to watch Friends' articles exist for specific shows but there is no interactive, all-shows calculator with schedule planning, playback speed adjustment, and reverse 'finish-by-date' calculation.",
+      "score": 74,
+      "breakdown": {
+        "demand": 22,
+        "gap": 13,
+        "buildable": 15,
+        "distribution": 14,
+        "monetization": 5,
+        "defensibility": 5
+      },
+      "buildPlan": "Static JSON dataset of 300+ top shows (title, seasons, episode count, avg runtime). Search box → show card. Inputs: episodes/day OR target finish date (reverse calc) + playback speed (1×/1.25×/1.5×/2×). Output: days to finish, total hours, schedule plan, shareable social card ('I committed to 127 hours of Breaking Bad'). Pure JS, zero-secret. GitHub Pages.",
+      "deployTarget": "github-pages",
+      "needsOwner": [],
+      "brandName": "BingeMap",
+      "category": "consumer",
+      "status": "researched",
+      "liveUrl": "",
+      "repo": "",
+      "createdSession": "2026-07-26",
+      "notes": "Hardest part is initial data curation — compiling runtimes for 300 shows is a one-time task that becomes a competitive moat. Viral distribution is strong (TV fan communities link and share; 'how long is [show]?' SEO is evergreen). Buildable score is lower due to data-curation requirement; the calculation logic itself is trivial. Build with easy update mechanism for new seasons."
     }
   ]
 }
