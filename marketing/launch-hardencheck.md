@@ -6,11 +6,14 @@
 > Log what you posted and any results in `ops-log/metrics-ledger.md`.
 
 **Tool URL:** https://labs.copperbaytech.com/hardencheck/  
-**Guides:**
+**Guides (7):**
 - https://labs.copperbaytech.com/hardencheck/guides/add-content-security-policy-header.html  
+- https://labs.copperbaytech.com/hardencheck/guides/content-security-policy-strict-dynamic.html  
+- https://labs.copperbaytech.com/hardencheck/guides/csp-react-spa-app.html  
 - https://labs.copperbaytech.com/hardencheck/guides/enable-hsts-header.html  
-- https://labs.copperbaytech.com/hardencheck/guides/x-frame-options-vs-csp-frame-ancestors.html  
+- https://labs.copperbaytech.com/hardencheck/guides/referrer-policy-header.html  
 - https://labs.copperbaytech.com/hardencheck/guides/x-content-type-options-nosniff.html  
+- https://labs.copperbaytech.com/hardencheck/guides/x-frame-options-vs-csp-frame-ancestors.html  
 **Audience:** web developers, indie hackers, DevOps engineers, anyone deploying a site who wants to know if their security headers are set correctly.  
 **Core promise:** Grade your HTTP security headers and cookie flags in 30 seconds — paste `curl -I` output and get an A–F report card with exact copy-paste fixes for your platform.
 
@@ -51,7 +54,7 @@
 >
 > **Platform-specific copy-paste fixes:** nginx, Apache (.htaccess), Vercel (vercel.json), Next.js (next.config.js), Netlify (_headers), Cloudflare Pages (_headers).
 >
-> Four in-depth guides cover the most critical headers: CSP with safe nonces/hashes, HSTS with preload considerations, X-Frame-Options vs frame-ancestors (when to set both, why ALLOW-FROM is dead), and X-Content-Type-Options nosniff (what MIME sniffing actually enables an attacker to do).
+> Seven in-depth guides cover the full header set: CSP with safe nonces/hashes; CSP strict-dynamic (for apps using script hashes and third-party loaders); CSP for React/Vite SPAs (inline scripts, CSS-in-JS, dev-mode differences); HSTS with preload considerations; Referrer-Policy (what the Referer header leaks and which policy value to set); X-Frame-Options vs CSP frame-ancestors (when to set both, why ALLOW-FROM is dead); and X-Content-Type-Options nosniff (what MIME sniffing actually enables an attacker to do).
 >
 > Runs 100% in your browser. Nothing is stored. No signup. Free.
 >
@@ -99,7 +102,7 @@
 >
 > Output is an A–F report card with a finding per issue, severity label, plain-English explanation of what the missing header enables an attacker to do, and copy-paste fix for nginx, Apache, Vercel, Next.js, Netlify, and Cloudflare Pages.
 >
-> Four in-depth guides sit alongside the tool covering CSP (with report-only mode for testing), HSTS (preload gotchas), XFO vs frame-ancestors, and nosniff/MIME sniffing.
+> Seven in-depth guides sit alongside the tool: CSP with report-only mode for testing; CSP strict-dynamic (for hashed scripts and third-party loaders); CSP for React/Vite SPAs (inline scripts, CSS-in-JS nonces, dev-mode differences); HSTS (preload gotchas); Referrer-Policy (what the Referer header leaks and why even the browser default isn't enough); XFO vs frame-ancestors; and nosniff/MIME sniffing.
 >
 > https://labs.copperbaytech.com/hardencheck/
 >
@@ -139,7 +142,7 @@
 >
 > What it checks: CSP (missing or weak), HSTS, X-Frame-Options / frame-ancestors, X-Content-Type-Options (nosniff), Referrer-Policy, Permissions-Policy, COOP/CORP isolation, and every Set-Cookie header for Secure / HttpOnly / SameSite flags. Also flags Server and X-Powered-By info disclosure headers.
 >
-> Four in-depth guides sit alongside it: one on writing a real CSP without breaking your site (using report-only mode first), one on HSTS and the preload list, one on X-Frame-Options vs CSP frame-ancestors (and why ALLOW-FROM is dead in all major browsers), and one on nosniff and what MIME sniffing attacks actually look like.
+> Seven in-depth guides sit alongside it: CSP (using report-only mode to test without breaking your site), CSP strict-dynamic (for hashed scripts and third-party loaders), CSP for React/Vite SPAs (inline scripts, CSS-in-JS nonces, dev-mode differences), HSTS and the preload list, Referrer-Policy (what the Referer header actually leaks and why you should still set it even though browsers changed the default in 2022), X-Frame-Options vs CSP frame-ancestors (and why ALLOW-FROM is dead in all major browsers), and nosniff and what MIME sniffing attacks actually look like.
 >
 > Runs 100% in the browser. Nothing stored, no signup.
 >
@@ -188,7 +191,7 @@
 >
 > **The cookie grading angle:** Most header scanners check response headers but skip cookie flags. HardenCheck parses every Set-Cookie and checks Secure, HttpOnly, and SameSite per cookie. I added this because a missing HttpOnly flag is a direct escalation path from an XSS vulnerability to session takeover — it's more concretely exploitable than most missing response headers — and it's consistently overlooked.
 >
-> Four in-depth guides sit alongside the tool covering the top four headers that HardenCheck flags most often: CSP (with report-only mode for safe testing), HSTS (with preload list considerations), X-Frame-Options vs CSP frame-ancestors (including why ALLOW-FROM is dead in all major browsers), and X-Content-Type-Options nosniff.
+> Seven in-depth guides sit alongside the tool covering the headers HardenCheck flags most often: CSP (with report-only mode for safe testing), CSP strict-dynamic (for apps using script hashes and third-party loaders), CSP for React/Vite SPAs (a separate guide because bundler-generated inline scripts need different nonce/hash handling than server-rendered apps), HSTS (with preload list considerations), Referrer-Policy (what the Referer header actually leaks in practice and why you should still set it explicitly even after the 2022 browser-default change), X-Frame-Options vs CSP frame-ancestors (including why ALLOW-FROM is dead in all major browsers), and X-Content-Type-Options nosniff.
 >
 > Free, runs in browser, no signup.
 >
@@ -217,7 +220,7 @@ Good threads to drop a mention in when you're genuinely answering a question:
 > HardenCheck (https://labs.copperbaytech.com/hardencheck/) can grade that — paste your `curl -I` output in paste mode for an offline grade with fix snippets for most platforms.
 
 ### r/netsec note
-r/netsec rules require substantial write-ups or published research — a direct tool link post will be removed. The four HardenCheck guides are appropriate to share in relevant threads as "I wrote up how [nosniff / XFO vs frame-ancestors / HSTS preload] actually works." Link to the guide, not the tool homepage, and only where the topic is genuinely relevant to the discussion.
+r/netsec rules require substantial write-ups or published research — a direct tool link post will be removed. The HardenCheck guides are appropriate to share in relevant threads as "I wrote up how [nosniff / XFO vs frame-ancestors / HSTS preload / CSP strict-dynamic / Referrer-Policy] actually works." Link to the guide, not the tool homepage, and only where the topic is genuinely relevant to the discussion.
 
 ---
 
